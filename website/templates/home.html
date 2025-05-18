@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content%}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Link to the CSS file located in the static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Content of the body -->
+  <div class="home">
+  <h1>~anisa's aesthetic asmr website~!</h1>
+  </div>
+  
+  <div class="video">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_" 
+  title="YouTube video player" frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+  allowfullscreen></iframe>
+  </div>
+
+</body>
+</html>
+{% endblock %}

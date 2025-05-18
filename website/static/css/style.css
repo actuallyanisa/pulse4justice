@@ -1,0 +1,60 @@
+html, body {
+  width: 100%;
+  overflow-x: auto;  height: auto;          /* allow height to grow naturally */
+  min-height: 100%;      /* at least full viewport height */
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;      /* allow horizontal scroll if needed */
+  overflow-y: auto;      /* allow vertical scroll */
+  background: #dde9e3;
+
+}
+
+/*all navbar-related things*/
+
+.navbar {
+  min-width: 100vw; /* ensure navbar minimum width is full viewport */
+  margin: 0;
+  padding: 0;
+  font-size: large;
+  font-weight: bold;
+  font: 200 'Helvetica Neue';
+  background-color: #88a094;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.navbar-nav {
+  flex-wrap: nowrap; /* prevent wrapping */
+  
+}
+.navbar-collapse {
+  overflow-x: auto;  /* enable horizontal scroll */
+  white-space: nowrap; /* prevent wrapping */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+.nav-item {
+  white-space: nowrap; /* keep individual links on one line */
+}
+
+nav.navbar {
+  background-color: #88a094 !important;
+}
+
+.navbar a.nav-link,
+.navbar .navbar-brand {
+  color: white !important;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.video{
+  text-align:center;
+}
+.img{
+  padding-left: 20px;
+  padding-bottom: 2.5px;
+}
+.home{
+  text-align:center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
