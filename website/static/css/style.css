@@ -6,7 +6,7 @@ html, body {
   white-space: nowrap;
   height: 100%;
   width: 100%;
-  background: #dde9e3;
+  background: #fff;
 }
 
 /* Wraps the whole page and allows horizontal scroll if needed */
@@ -21,7 +21,7 @@ nav.navbar {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: #88a094;
+  background-color: #bc1823;
   font-family: system-ui, sans-serif;
   font-size: large;
   font-weight: bold;
@@ -38,7 +38,6 @@ nav.navbar {
 /* Nav links */
 .navbar-nav {
   display: flex;
-  gap: 20px;
   flex-wrap: nowrap;
 }
 
@@ -50,10 +49,9 @@ nav.navbar {
 }
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .video{
-  text-align:center;
+  padding-left: 100px;
 }
 .img{
-  padding-left: 20px;
   padding-bottom: 2.5px;
 }
 .home{
@@ -77,7 +75,7 @@ nav.navbar {
   flex: 0 0 auto;
   width: 320px;
   height: 300px;
-  background-color: #88a094;
+  background-color: #bc1823;
   border-radius: 25px;
 }
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
