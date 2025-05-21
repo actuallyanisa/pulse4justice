@@ -15,6 +15,7 @@ html, body {
 
 .navbar {
   min-width: 100%; /* ensure navbar minimum width is full viewport */
+  position: relative; /* keep it in flow */
   margin: 0;
   padding: 0;
   font-size: large;
@@ -35,6 +36,14 @@ html, body {
 }
 .nav-item {
   white-space: nowrap; /* keep individual links on one line */
+  display: flex;
+  justify-content: space-between; /* space out nav links */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap; /* prevent wrapping */
+  overflow-x: auto;  /* optional: lets it scroll if too many items */
+  white-space: nowrap;
 }
 
 nav.navbar {
@@ -88,10 +97,18 @@ nav.navbar {
   font-weight: bold;
 }
 
-.scroll-container {
+.horizontal-scroll-container {
   display: inline-block;
   white-space: normal; /* allow elements inside to wrap vertically */
   height: 100%;
   width: max-content;
 }
 
+.page-content {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  white-space: normal;
+}
