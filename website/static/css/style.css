@@ -1,61 +1,53 @@
 html, body {
-  width: 100%;
-  overflow-x: auto;  height: auto;          /* allow height to grow naturally */
-  min-height: 100%;      /* at least full viewport height */
   margin: 0;
   padding: 0;
-  overflow-x: auto;      /* allow horizontal scroll if needed */
-  overflow-y: auto;      /* allow vertical scroll */
-  background: #dde9e3;
+  overflow-x: auto;
+  overflow-y: auto;
   white-space: nowrap;
-
+  height: 100%;
+  width: 100%;
+  background: #dde9e3;
 }
 
-/*all navbar-related things*/
+/* Wraps the whole page and allows horizontal scroll if needed */
+.full-page-scroll {
+  display: inline-block;
+  min-width: max-content;
+  width: 100%;
+}
 
-.navbar {
-  min-width: 100%; /* ensure navbar minimum width is full viewport */
-  position: relative; /* keep it in flow */
-  margin: 0;
-  padding: 0;
+/* Navbar itself will expand to fit its content */
+nav.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #88a094;
+  font-family: system-ui, sans-serif;
   font-size: large;
   font-weight: bold;
-  font: 200 'Helvetica Neue';
-  background-color: #88a094;
-  scrollbar-gutter: stable both-edges;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-width: max-content;
+  width: 100%;
 }
-.navbar-nav {
-  flex-wrap: nowrap; /* prevent wrapping */
-  
-}
-.navbar-collapse {
-  overflow-x: auto;  /* enable horizontal scroll */
-  white-space: nowrap; /* prevent wrapping */
-  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-}
-.nav-item {
-  white-space: nowrap; /* keep individual links on one line */
-  display: flex;
-  justify-content: space-between; /* space out nav links */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-wrap: nowrap; /* prevent wrapping */
-  overflow-x: auto;  /* optional: lets it scroll if too many items */
+
+/* Container that enables horizontal scroll if needed */
+.nav-scroll-container {
+  overflow-x: auto;
   white-space: nowrap;
 }
 
-nav.navbar {
-  background-color: #88a094 !important;
+/* Nav links */
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .navbar a.nav-link,
 .navbar .navbar-brand {
   color: white !important;
+  white-space: nowrap;
+  text-decoration: none;
 }
-
-
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .video{
   text-align:center;
@@ -66,8 +58,8 @@ nav.navbar {
 }
 .home{
   text-align:center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 /*four main squares*/
