@@ -2,22 +2,22 @@
   <nav class="navbar navbar-expand navbar-dark">
     <a class="navbar-brand" href="/">
       <div class="img">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="30" />
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="50" />
       </div>
     </a>
 
-    <div class="navbar-nav">
+    <div class="navbar-nav ml-auto">
       {% if user.is_authenticated %}
-        <a class="nav-item nav-link" href="/">Home</a>
         <a class="nav-item nav-link" href="/logout">Logout</a>
-        <a class="nav-item nav-link" href="/fundraising">Fundraising</a>
-        <a class="nav-item nav-link" href="/updates">Updates</a>
+        <a class="nav-item nav-link" href="/donate">Donate</a>
+        <a class="nav-item nav-link" href="/aboutus">About Us</a>
+        <a class="nav-item nav-link nav-button" href="/shareyourstory">Share Your Story</a>
       {% else %}
-        <a class="nav-item nav-link" href="/">Home</a>
         <a class="nav-item nav-link" href="/login">Login</a>
         <a class="nav-item nav-link" href="/sign-up">Sign Up</a>
-        <a class="nav-item nav-link" href="/fundraising">Fundraising</a>
-        <a class="nav-item nav-link" href="/updates">Updates</a>
+        <a class="nav-item nav-link" href="/donate">Donate</a>
+        <a class="nav-item nav-link" href="/aboutus">About Us</a>
+        <a class="nav-item nav-link nav-button" href="/shareyourstory">Share Your Story</a>
       {% endif %}
     </div>
   </nav>

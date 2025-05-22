@@ -10,9 +10,9 @@ def home():
 
     return render_template("home.html")
 
-@views.route('/fundraising')
-def fundraising():
-    return render_template('fundraising.html')
+@views.route('/donate')
+def donate():
+    return render_template('donate.html')
 
 @views.route('/updates')
 def updates():

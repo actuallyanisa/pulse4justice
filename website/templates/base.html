@@ -4,53 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link 
-      rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-      crossorigin="anonymous" />
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    crossorigin="anonymous" />
   <link 
-      rel="stylesheet" 
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      crossorigin="anonymous" />
-  <link 
-      rel="stylesheet" 
-      href="{{ url_for('static', filename='css/style.css') }}" />
-      
-
+    rel="stylesheet" 
+    href="{{ url_for('static', filename='css/style.css') }}" />
+  <title>{% block title %}Home{% endblock %}</title>
 </head>
 
 <body>
-  <div class="horizontal-scroll-container">
-    {% include "navbar/navbar.html" %}
-
-    <div class="home">
-      <h1>~anisa's aesthetic asmr website~!</h1>
-    </div>
-
-    <div class="container-fluid" style="min-height: 150vh;">
-      {% block content %}{% endblock %}
-
-      <div class="horizontal-scroll-container">
-        <div class="page-content">
-          <nav class="navbar-nav"></nav>
-
-        </div>
-      </div>
-
-      <div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_" 
-        title="YouTube video player" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
-      </div>
-
-      <div class="squares-wrapper">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-      </div>
-    </div>
+  {% include "navbar/navbar.html" %}
+  <div class="container-fluid">
+    {% block content %}{% endblock %}
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
