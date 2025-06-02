@@ -1,51 +1,27 @@
-<!DOCTYPE html>
-{% extends "base.html" %} {% block title %}Home{% endblock %}
-{% block content%}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-  <!-- Link to the CSS file located in the static folder -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
   <div class="horizontal-scroll-container">
-    
-
     <div class="container-fluid" style="min-height: 150vh;">
-    
-
-      <div class="horizontal-scroll-container">
-        <div class="page-content">
-          <nav class="navbar-nav"></nav>
-
+      <div class="page-content">
+        <div class="video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-      </div>
 
-      <div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_" 
-        title="YouTube video player" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen></iframe>
-      </div>
+        <div class="explore">
+          <h1>Explore more stories:</h1>
+        </div>
 
-      <div class="explore">
-        <h1>Explore more stories:</h1>
-      </div>
-
-      <div class="squares-wrapper">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+        <div class="squares-wrapper">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
       </div>
     </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
-</html>
 {% endblock %}

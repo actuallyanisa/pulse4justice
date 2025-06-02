@@ -71,6 +71,7 @@ nav.navbar {
   justify-content: center;
   scroll-snap-type: x mandatory;
   padding-top: 50px;
+  width: max-content; /* makes container grow horizontally */
 }
 
 .square {
@@ -91,10 +92,10 @@ nav.navbar {
 }
 
 .horizontal-scroll-container {
-  display: inline-block;
-  white-space: normal; /* allow elements inside to wrap vertically */
-  height: 100%;
-  width: max-content;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  width: 100%;
 }
 
 .page-content {

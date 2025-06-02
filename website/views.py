@@ -14,6 +14,10 @@ def home():
 def donate():
     return render_template('donate.html')
 
-@views.route('/updates')
+@views.route('/aboutus')
 def updates():
-    return render_template('updates.html')
+    return render_template('aboutus.html')
+
+@views.route('/shareyourstory')
+def shareyourstory():
+    return render_template('shareyourstory.html')
