@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>File Too Large</h2>
+  <p>Your image exceeds the 2MB upload limit. Please choose a smaller file.</p>
+  <a href="{{ url_for('views.profile') }}">Go back to profile</a>
+{% endblock %}

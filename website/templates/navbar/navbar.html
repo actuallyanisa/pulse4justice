@@ -4,6 +4,7 @@
       <div class="img">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" height="50" />
       </div>
+    
     </a>
 
     <div class="navbar-nav ml-auto">
@@ -12,12 +13,22 @@
         <a class="nav-item nav-link" href="/donate">Donate</a>
         <a class="nav-item nav-link" href="/aboutus">About Us</a>
         <a class="nav-item nav-link nav-button" href="/shareyourstory">Share Your Story</a>
+        <div class="pfp">
+        <a href="{{ url_for('views.profile') }}">
+          <img src="{{ profile_image }}" alt="Profile Picture">
+        </a>
+      </div>
       {% else %}
         <a class="nav-item nav-link" href="/login">Login</a>
         <a class="nav-item nav-link" href="/sign-up">Sign Up</a>
         <a class="nav-item nav-link" href="/donate">Donate</a>
         <a class="nav-item nav-link" href="/aboutus">About Us</a>
         <a class="nav-item nav-link nav-button" href="/shareyourstory">Share Your Story</a>
+        <div class="pfp">
+          <a href="{{ url_for('views.profile') }}">
+            <img src="{{ profile_image }}" alt="Profile Picture">
+          </a>
+        </div>
       {% endif %}
     </div>
   </nav>

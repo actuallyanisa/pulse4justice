@@ -1,13 +1,43 @@
-from flask import Blueprint, render_template, jsonify
+import os
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for, current_app
 from flask_login import login_required, current_user
 import json
+from werkzeug.utils import secure_filename
 
 views = Blueprint('views', __name__)
 
 
-@views.route('/', methods=['GET', 'POST'])
-def home():
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
 
+@views.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    # Set default image
+    image_filename = f"{current_user.id}.jpg"
+    upload_folder = current_app.config['UPLOAD_FOLDER']
+    user_image_path = os.path.join(upload_folder, image_filename)
+
+    # If user hasn't uploaded a profile picture, use default
+    user_image_path = os.path.join(upload_folder, image_filename)
+
+    if not os.path.exists(user_image_path):
+        image_filename = 'default.jpg'
+        print("Looking for file at:", user_image_path)
+
+    profile_image = url_for('static', filename=f'images/{image_filename}')
+
+    if request.method == 'POST':
+        file = request.files.get('profile-pic')
+        if file and allowed_file(file.filename):
+            os.makedirs(upload_folder, exist_ok=True)  # create folder if missing
+            filename = secure_filename(f"{current_user.id}.jpg")
+            file.save(os.path.join(upload_folder, filename))
+            return redirect(url_for('views.profile'))
+
+    return render_template('profile.html', profile_image=profile_image)
+@views.route('/')
+def home():
     return render_template("home.html")
 
 @views.route('/donate')
@@ -21,3 +51,7 @@ def updates():
 @views.route('/shareyourstory')
 def shareyourstory():
     return render_template('shareyourstory.html')
+
+@views.route('/error')
+def error():
+    return render_template('error.html')

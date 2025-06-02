@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Show current profile picture -->
+<div class="pfp-wrapper">
+  <img src="{{ profile_image }}" alt="Profile Picture">
+</div>
+
+<!-- Upload form -->
+<form method="POST" enctype="multipart/form-data">
+  <div class="choosefile-wrapper">
+    <label class="choosefile-button">
+      Choose Profile Picture
+      <input type="file" name="profile-pic" accept="image/*" required>
+    </label>
+  </div>
+    <div class="submitpfp">
+        <button type="submit">Upload</button>
+    </div>
+</form>
+<br>
+{% endblock %}
