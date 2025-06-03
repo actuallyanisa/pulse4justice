@@ -1,27 +1,41 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content %}
-  <div class="horizontal-scroll-container">
-    <div class="container-fluid" style="min-height: 150vh;">
-      <div class="page-content">
-        <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+<head>
+  {% extends "base.html" %}
+  {% block title %}Home{% endblock %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+<head>
 
-        <div class="explore">
-          <h1>Explore more stories:</h1>
-        </div>
+<body>
+  {% block content %}
+    <div class="horizontal-scroll-container">
+      <div class="container-fluid" style="min-height: 150vh;">
+        <div class="page-content">
+          <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4_Y44GcH8ek?si=8Lfk0X6AcrJBi8Y_"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="share-wrapper">
+            <a href="/sharestoryhome" style="color: black; align-items: center;  ">
+              SHARE YOUR STORY
+            </a>
 
-        <div class="squares-wrapper">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
+          </div>
+            <div class="explore">
+            <p>Explore More Stories:</p>
+          </div>
+
+          <div class="squares-wrapper">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-{% endblock %}
+  {% endblock %}
+</body>
+</html>

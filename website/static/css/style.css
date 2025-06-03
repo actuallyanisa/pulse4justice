@@ -7,6 +7,7 @@ html, body {
   height: 100%;
   width: 100%;
   background: #fff;
+
 }
 
 /* Wraps the whole page and allows horizontal scroll if needed */
@@ -16,15 +17,16 @@ html, body {
   width: 100%;
 }
 
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+
 /* Navbar itself will expand to fit its content */
 nav.navbar {
   display: flex;
   align-items: center;
-  padding-left: 30px;
+  padding-left: 20px;
   background-color: #bc1823;
   font-family: system-ui, sans-serif;
   font-size: large;
-  font-weight: bold;
   min-width: max-content;
   width: 100%;
   
@@ -38,32 +40,77 @@ nav.navbar {
 
 /* Nav links */
 .navbar-nav {
+  align-items: center; 
   display: flex;
   flex-wrap: nowrap;
 }
 
 .navbar a.nav-link,
 .navbar .navbar-brand {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
   color: white !important;
   white-space: nowrap;
   text-decoration: none;
+  align-items: center; 
 }
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-.video{
-  padding-left: 100px;
+
+.navbar-left{
+  color:#fff;
+  font-size: 25px;
+  margin-left:5px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  align-items: center; 
 }
-.img{
-  padding-bottom: 2.5px;
-  width: 50px;
-  height: 50px;
+
+.logo{
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0; /* Prevents stretching in flex layout */
 }
 
+.navbar a.nav-link.nav-button {
+  color: black !important;
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  display: inline-flex;      
+  justify-content: center; 
+  font-weight: bold;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.share-wrapper{
+  color: black !important;
+  width:200px ;
+  height:50px ;
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  display: inline-flex;   
+  justify-content: center;
+  align-items: center;     
+  font-weight: bold;
+  margin-left: 985px;
+  position: relative;
+  top: -40px;  /* Adjust upward as needed */
+}
+
+.video{
+  padding-top: 50px;
+  padding-left: 100px;
+}
+
+
 .explore{
   text-align:center;
-  padding-top: 30px;
+  padding-top: 150px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size:40px;
 }
 
 /*four main squares*/
@@ -71,6 +118,7 @@ nav.navbar {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  padding-top: 20px !important;
   padding: 40px;
   gap: 40px;
   justify-content: center;
@@ -112,12 +160,6 @@ nav.navbar {
   white-space: normal;
 }
 
-.navbar a.nav-link.nav-button {
-  color: black !important;
-  background-color: #d9d9d9;
-  border-radius: 12px;
-  text-decoration: none;
-}
 
 .pfp {
   width: 50px;
@@ -163,4 +205,12 @@ nav.navbar {
 
 .choosefile-button input[type="file"] {
   display: none;
+}
+
+.user-name{
+  padding-left: 400px;
+  padding-bottom:-20px;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: -300px;
 }
