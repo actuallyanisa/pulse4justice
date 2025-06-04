@@ -1,28 +1,71 @@
-{% extends "base.html" %}
+<head>
+  {% extends "base.html" %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<head> 
 
-{% block content %}
 
-<!-- Show current profile picture -->
-<div class="pfp-wrapper">
-  <img src="{{ profile_image }}" alt="Profile Picture">
-</div>
-
-<!-- Upload form -->
-<form method="POST" enctype="multipart/form-data">
-  <div class="choosefile-wrapper">
-    <label class="choosefile-button">
-      Choose Profile Picture
-      <input type="file" name="profile-pic" accept="image/*" required>
-    </label>
+<body>
+  {% block content %}
+  <!-- Show current profile picture -->
+  <div class="pfp-wrapper">
+    <img src="{{ profile_image }}" alt="Profile Picture">
   </div>
-    <div class="submitpfp">
-        <button type="submit">Upload</button>
+
+  <!-- Upload form -->
+  <form method="POST" enctype="multipart/form-data">
+    <div class="choosefile-wrapper">
+      <label class="choosefile-button">
+        Choose Profile Picture
+        <input type="file" name="profile-pic" accept="image/*" required>
+      </label>
     </div>
-</form>
+      <div class="submitpfp">
+          <button type="submit">Upload</button>
+      </div>
+  </form>
 
-<div class="user-name">
-  <p>Welcome, {{ user.first_name }}!</p>
-</div>
+  <div class="user-name">
+    <p>Welcome, {{ user.first_name }}!</p>
+  </div>
 
-<br>
-{% endblock %}
+  <div class="changepasswordtitle">    
+    <p>Change Password</p>
+  </div>
+
+    <form method="POST" action="{{ url_for('views.update_password') }}">
+
+    <div class="currentpasswordtitle">  
+      <label for="current_password">Current Password:</label>
+    </div>
+  
+    <div class="currentpasswordbutton">
+      <input type="password" name="current_password" required><br>
+    </div>
+
+    <div class="newpasswordbutton">
+      <label for="new_password">New Password:</label>
+      <input type="password" name="new_password" required><br>
+    </div>
+
+    <div class="confirmpasswordbutton">
+      <label for="confirm_password">Confirm New Password:</label>
+      <input type="password" name="confirm_password" required><br>
+    </div>
+
+    <div class="submitpasswordbutton">
+      <button type="submit">Update Password</button>
+    </div>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <br>
+  {% endblock %}
+</body>
+</html>

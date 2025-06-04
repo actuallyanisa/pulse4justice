@@ -1,8 +1,11 @@
 import os
-from flask import Blueprint, render_template, jsonify, request, redirect, url_for, current_app
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for, current_app, flash, render_template
 from flask_login import login_required, current_user
 import json
 from werkzeug.utils import secure_filename
+from werkzeug.security import check_password_hash, generate_password_hash
+from .models import User
+from . import db
 
 views = Blueprint('views', __name__)
 
@@ -36,9 +39,31 @@ def profile():
             return redirect(url_for('views.profile'))
 
     return render_template('profile.html', profile_image=profile_image)
+
+@views.route('/update-password', methods=['POST'])
+@login_required
+def update_password():
+    current_password = request.form['current_password']
+    new_password = request.form['new_password']
+    confirm_password = request.form['confirm_password']
+
+    if not check_password_hash(current_user.password, current_password):
+        flash("Current password is incorrect.", "danger")
+        return redirect(url_for('views.profile'))
+
+    if new_password != confirm_password:
+        flash("New passwords do not match.", "danger")
+        return redirect(url_for('views.profile'))
+
+    current_user.password = generate_password_hash(new_password)
+    db.session.commit()
+    flash("Password updated successfully.", "success")
+    return redirect(url_for('views.profile'))
+
 @views.route('/')
 def home():
     return render_template("home.html")
+
 
 @views.route('/donate')
 def donate():

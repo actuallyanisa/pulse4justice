@@ -1,6 +1,5 @@
 from flask import Flask
 import os
-from .views import views as views_blueprint
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
@@ -15,14 +14,23 @@ def create_app():
     app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024  # 2MB max
     app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+
     db.init_app(app)
+
+    # Import blueprints and models AFTER db init
+    from .views import views as views_blueprint
+    from .auth import auth
+    from .models import User
 
     from .auth import auth
 
     app.register_blueprint(views_blueprint, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+    from .models import User
 
-    from .models import User, Note
+    with app.app_context():
+        db.create_all()
+
     
     with app.app_context():
         db.create_all()

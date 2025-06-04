@@ -1,23 +1,4 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: auto;
-  overflow-y: auto;
-  white-space: nowrap;
-  height: 100%;
-  width: 100%;
-  background: #fff;
-
-}
-
-/* Wraps the whole page and allows horizontal scroll if needed */
-.full-page-scroll {
-  display: inline-block;
-  min-width: max-content;
-  width: 100%;
-}
-
-/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+/*NAVBAR----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Navbar itself will expand to fit its content */
 nav.navbar {
@@ -82,7 +63,27 @@ nav.navbar {
   font-weight: bold;
 }
 
-/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*HOMEPAGE----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+
+}
+
+/* Wraps the whole page and allows horizontal scroll if needed */
+.full-page-scroll {
+  display: inline-block;
+  min-width: max-content;
+  width: 100%;
+}
+
 .share-wrapper{
   color: black !important;
   width:200px ;
@@ -135,7 +136,7 @@ nav.navbar {
   border-radius: 25px;
   
 }
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*lowknoidea------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .form-group{
   margin: 0;
@@ -160,6 +161,7 @@ nav.navbar {
   white-space: normal;
 }
 
+/*CHANGING PROFILE PICTURE------------------------------------------------------------------------------------*/
 
 .pfp {
   width: 50px;
@@ -207,10 +209,51 @@ nav.navbar {
   display: none;
 }
 
+/*username----------------------------------------------------------------------------------------------------*/
+
 .user-name{
   padding-left: 400px;
   padding-bottom:-20px;
   font-size: 50px;
   font-weight: bold;
   margin-top: -300px;
+}
+
+/*CHANGING PASSWORDS-----------------------------------------------------------------------------*/
+.currentpasswordtitle{
+  margin-left: 400px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.currentpasswordbutton{
+  margin-left: 530px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.newpasswordbutton{
+  margin-left: 400px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.confirmpasswordbutton{
+  margin-left: 400px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.submitpasswordbutton{
+  margin-left: 400px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.changepasswordtitle{
+  margin-left: 400px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
 }
