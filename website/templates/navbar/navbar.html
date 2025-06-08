@@ -17,10 +17,23 @@
 <body>
   <div class="full-page-scroll">
     <nav class="navbar navbar-expand navbar-dark">
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo" />
-    <div class="navbar-left">
-      <span class="navbar-title">Pulse For Justice</span>
-    </div>
+    <a href="{{ url_for('views.home') }}">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo" />
+    </a>
+      <div class="navbar-left">
+        <a href="{{ url_for('views.home') }}" class="custom-link">Pulse For Justice</a>
+      </div>
+
+<style>
+  .navbar-left a,
+  .navbar-left a:visited,
+  .navbar-left a:hover,
+  .navbar-left a:active {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+</style>
+
 
       <div class="navbar-nav ml-auto">
         {% if user.is_authenticated %}

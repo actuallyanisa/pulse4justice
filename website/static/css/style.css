@@ -6,10 +6,10 @@ nav.navbar {
   align-items: center;
   padding-left: 20px;
   background-color: #bc1823;
-  font-family: system-ui, sans-serif;
   font-size: large;
   min-width: max-content;
   width: 100%;
+  position: fixed;
   
 }
 
@@ -17,6 +17,7 @@ nav.navbar {
 .nav-scroll-container {
   overflow-x: auto;
   white-space: nowrap;
+  
 }
 
 /* Nav links */
@@ -30,10 +31,10 @@ nav.navbar {
 .navbar .navbar-brand {
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
-  color: white !important;
   white-space: nowrap;
-  text-decoration: none;
   align-items: center; 
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 .navbar-left{
@@ -45,6 +46,10 @@ nav.navbar {
   font-weight: bold;
   align-items: center; 
 }
+
+
+
+
 
 .logo{
   width: 60px;
@@ -187,22 +192,31 @@ html, body {
   flex-shrink: 0; /* Prevents stretching in flex layout */
   margin-left: 100px;
   margin-top: 100px;
+  
 }
 
 .submitpfp {
-  padding-left:160px;
-  padding-top:10px;
+  font-family: "League Spartan", sans-serif;
+  background-color: #bc1823;
+  color: white;
+  border-radius: 6px;
+  border-color:#bc1823;
+  padding: 8px 15px; /* Control size */
+  margin: 10px 0 0 154px;
 }
 
 
 .choosefile-button {
-  background-color: #007bff;
+  background-color: #bc1823;
   color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
   font-weight: bold;
+  padding: 10px 16px;
   margin-left: 103px;
   margin-top: 10px;
+  border-color:#bc1823;
+  border-radius: 6px;
 }
 
 .choosefile-button input[type="file"] {
@@ -220,6 +234,7 @@ html, body {
 }
 
 /*CHANGING PASSWORDS-----------------------------------------------------------------------------*/
+
 .currentpasswordtitle{
   margin-left: 400px;
   font-family: "League Spartan", sans-serif;
@@ -228,32 +243,44 @@ html, body {
 
 .currentpasswordbutton{
   margin-left: 530px;
-  margin-top: -20px;
+  margin-top: -34px;
   margin-bottom: 10px;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
 }
 
 .newpasswordbutton{
-  margin-left: 400px;
+  position: relative;
+  margin-left: 730px;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
+  margin-top: -39px;
 }
 
 .confirmpasswordbutton{
-  margin-left: 400px;
+  margin-left: 1030px;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
+  margin-top: -35px;
 }
 
 .submitpasswordbutton{
-  margin-left: 400px;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
+  margin-left: 1242px;
+  margin-top: 10px;
+  background-color: #bc1823;
+  color:#fff;
+  border-radius: 6px;
+  border-color:#bc1823;
 }
 
 .changepasswordtitle{
   margin-left: 400px;
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-size: 20px;
 }

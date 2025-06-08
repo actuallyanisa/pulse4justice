@@ -21,9 +21,8 @@
         <input type="file" name="profile-pic" accept="image/*" required>
       </label>
     </div>
-      <div class="submitpfp">
-          <button type="submit">Upload</button>
-      </div>
+      <button type="submit" class="submitpfp" >Upload</button>
+      
   </form>
 
   <div class="user-name">
@@ -31,7 +30,7 @@
   </div>
 
   <div class="changepasswordtitle">    
-    <p>Change Password</p>
+    <p>CHANGE PASSWORD</p>
   </div>
 
     <form method="POST" action="{{ url_for('views.update_password') }}">
@@ -54,10 +53,9 @@
       <input type="password" name="confirm_password" required><br>
     </div>
 
-    <div class="submitpasswordbutton">
-      <button type="submit">Update Password</button>
-    </div>
+    <button type="submit" class="submitpasswordbutton">Update Password</button>
   </form>
+  
 
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% for category, message in messages %}
