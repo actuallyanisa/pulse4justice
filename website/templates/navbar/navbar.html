@@ -11,29 +11,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-</head>
 
+  <style>
+    .navbar-left a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-left a:hover,
+    .navbar-left a:focus {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    .navbar-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
 
 <body>
   <div class="full-page-scroll">
     <nav class="navbar navbar-expand navbar-dark">
-    <a href="{{ url_for('views.home') }}">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo" />
-    </a>
       <div class="navbar-left">
-        <a href="{{ url_for('views.home') }}" class="custom-link">Pulse For </a>
+        <a href="/">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo" />
+          <span class="navbar-title">Pulse For Justice</span>
+        </a>
       </div>
-
-<style>
-  .navbar-left a,
-  .navbar-left a:visited,
-  .navbar-left a:hover,
-  .navbar-left a:active {
-    color: #fff !important;
-    text-decoration: none !important;
-  }
-</style>
-
 
       <div class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
@@ -42,11 +56,10 @@
           <a class="nav-item nav-link" href="/aboutus">ABOUT US</a>
           <a class="nav-item nav-link nav-button" href="/shareyourstory">SHARE YOUR STORY</a>
           <div class="pfp">
-          <a href="{{ url_for('views.profile') }}">
-            <img src="{{ profile_image }}" alt="Profile Picture">
-          </a>
+            <a href="{{ url_for('views.profile') }}">
+              <img src="{{ profile_image }}" alt="Profile Picture">
+            </a>
           </div>
-        
         {% else %}
           <a class="nav-item nav-link" href="/login">LOGIN</a>
           <a class="nav-item nav-link" href="/sign-up">SIGN UP</a>
@@ -58,7 +71,6 @@
               <img src="{{ profile_image }}" alt="Profile Picture">
             </a>
           </div>
-
         {% endif %}
       </div>
     </nav>
