@@ -17,7 +17,6 @@ nav.navbar {
 .nav-scroll-container {
   overflow-x: auto;
   white-space: nowrap;
-  
 }
 
 /* Nav links */
@@ -47,7 +46,11 @@ nav.navbar {
   align-items: center; 
 }
 
-
+.navbar-title{
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  color: white !important;
+}
 
 
 
@@ -105,7 +108,7 @@ html, body {
 }
 
 .video{
-  padding-top: 50px;
+  padding-top: 100px;
   padding-left: 100px;
 }
 
