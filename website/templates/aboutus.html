@@ -1,6 +1,274 @@
 {% extends "base.html" %}
 
-{% block content%}
-<h1>About Us!</h1>
+{% block content %}
+<style>
+  /* ===== Mission Section ===== */
+  .mission-section {
+    display: flex;
+    align-items: center;
+    background-color: #696969;
+    max-width: 100vw;
+    margin: 0 auto 3rem;
+    gap: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    padding: 2rem;
+  }
 
+  .mission-image {
+    flex-shrink: 0;
+    width: 360px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  .mission-text {
+    flex-grow: 1;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mission-text h2 {
+    font-weight: 900;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .mission-text p {
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  /* ===== Card Section ===== */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .card {
+    width: 300px;
+    background-color: #cc0000;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    border-radius: 12px;
+  }
+
+  .card.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .card-text {
+    padding: 1rem 1.2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .card-text h3 {
+    margin: 0.4rem 0 0.2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .card-text h4 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #ffcccc;
+  }
+
+  /* ===== Story Rectangle ===== */
+  .story-rectangle {
+    width: 100vw;
+    margin: 4rem 0;
+    background-color: #990000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    overflow: hidden;
+    padding: 1.5rem 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+  }
+
+  .story-image {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 3rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  .story-text {
+    flex-grow: 1;
+    white-space: normal;
+  }
+
+  .story-text h2 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  .story-text p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    white-space: normal;
+  }
+
+  /* ===== Responsive Adjustments ===== */
+  @media (max-width: 900px) {
+    .mission-section {
+      flex-direction: column;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
+    .mission-image {
+      width: 100%;
+      height: 200px;
+    }
+    .mission-text h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .mission-text p {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .story-rectangle {
+      flex-direction: column;
+      height: auto;
+      padding: 2rem 1.5rem;
+    }
+    .story-image {
+      width: 100%;
+      height: 160px;
+      margin: 0 0 1.5rem 0;
+    }
+    .story-text h2 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .story-text p {
+      font-size: 1rem;
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+</style>
+
+<!-- ===== Scroll-triggered Reveal Animation ===== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
+
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.9;
+      cards.forEach(card => {
+        const boxTop = card.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          card.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // Run once on load
+  });
+</script>
+
+<!-- ===== Mission Section ===== -->
+<div class="mission-section">
+  <img src="{{ url_for('static', filename='images/healthcare_equity.jpg') }}" alt="Healthcare Equity" class="mission-image" />
+  <div class="mission-text">
+    <h2>Our Mission</h2>
+    <p>
+      Pulse for Justice was founded on the belief that justice must begin with listening. In every community, there are voices—often overlooked, often silenced—that carry the weight of healthcare inequity, racial bias, financial hardship, and unspoken trauma. We are here to change that. Our mission is to hold space for the stories that deserve to be heard and to transform them into a force for systemic change. We believe in technology not as a solution alone, but as a megaphone—one that can amplify real pain, demand accountability, and drive policy and compassion alike. Every testimony we collect is a thread in the fabric of collective healing. This isn’t just a platform. This is a movement.
+    </p>
+  </div>
+</div>
+
+<!-- ===== Team Cards ===== -->
+<div class="card-container">
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/rohini_new.jpg') }}" alt="Rohini Vedam">
+    <div class="card-text">
+      <h3>Rohini Vedam</h3>
+      <h4>Founder and Developer</h4>
+      <p>"Every story we share sparks a movement. I’m here to ensure those sparks ignite real change."</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/anisa_new.jpg') }}" alt="Anisa Chandra">
+    <div class="card-text">
+      <h3>Anisa Chandra</h3>
+      <h4>Founder & Designer</h4>
+      <p>"Data is more than numbers — it’s the voice of the unheard. I build the tools to make sure it’s heard loud and clear."</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/ananya_new.jpg') }}" alt="Ananya Vinesh">
+    <div class="card-text">
+      <h3>Ananya Vinesh</h3>
+      <h4>Founder & Outreach</h4>
+      <p>"Technology is our ally in justice — I create platforms where real pain meets real power."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Our Story ===== -->
+<div class="story-rectangle">
+  <img src="{{ url_for('static', filename='images/our_story.jpg') }}" alt="Our Story" class="story-image" />
+  <div class="story-text">
+    <h2>Our Story</h2>
+    <p>
+      Pulse for Justice was born from a passion to amplify voices too often ignored. Through technology, we collect stories of hardship and resilience, turning them into a powerful force for change. Our mission is to transform pain into progress—one testimony at a time.
+    </p>
+  </div>
+</div>
 {% endblock %}
