@@ -4,7 +4,6 @@
 nav.navbar {
   display: flex;
   align-items: center;
-  padding-left: 20px;
   background-color: #bc1823;
   font-size: large;
   min-width: max-content;
@@ -73,6 +72,7 @@ nav.navbar {
 
 /*HOMEPAGE----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+
 html, body {
   margin: 0;
   padding: 0;
@@ -82,6 +82,7 @@ html, body {
   height: 100%;
   width: 100%;
   background: #fff;
+  border: none;
 
 }
 
@@ -107,10 +108,7 @@ html, body {
   top: -40px;  /* Adjust upward as needed */
 }
 
-.video{
-  padding-top: 100px;
-  padding-left: 100px;
-}
+
 
 
 .explore{
@@ -164,7 +162,6 @@ html, body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  padding: 20px;
   box-sizing: border-box;
   white-space: normal;
 }
@@ -297,3 +294,4 @@ html, body {
 .form-ps{
   padding-top: 30px;
 }
+
