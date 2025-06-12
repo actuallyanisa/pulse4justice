@@ -80,3 +80,7 @@ def shareyourstory():
 @views.route('/error')
 def error():
     return render_template('error.html')
+
+@views.route('/signup')
+def signup():
+    return render_template('sign_up.html')
