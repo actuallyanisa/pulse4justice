@@ -60,6 +60,27 @@ def update_password():
     flash("Password updated successfully.", "success")
     return redirect(url_for('views.profile'))
 
+@views.route('/update-email', methods=['POST'])
+@login_required
+def update_email():
+    print("Update email form submitted")
+    print("Form data:", request.form)
+
+    current_email = request.form.get('current_email')
+    new_email = request.form.get('new_email')
+
+    print("Entered current_email:", current_email)
+    print("Logged-in user's email:", current_user.email)
+
+    if current_user.email != current_email:
+        flash("Current email is incorrect.", "danger")
+        return redirect(url_for('views.profile'))
+
+    current_user.email = new_email
+    db.session.commit()
+    flash("Email updated successfully!", "success")
+    return redirect(url_for('views.profile'))
+
 @views.route('/')
 def home():
     return render_template("home.html")

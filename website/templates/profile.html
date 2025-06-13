@@ -1,63 +1,77 @@
-<head>
-  {% extends "base.html" %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<head> 
 
+{% extends "base.html" %}
+{% block content %}
 
-<body>
-  {% block content %}
   <!-- Show current profile picture -->
-  <div class="pfp-wrapper">
-    <img src="{{ profile_image }}" alt="Profile Picture">
-  </div>
+<div class="pfp-wrapper">
+  <img src="{{ profile_image }}" alt="Profile Picture">
+</div>
 
   <!-- Upload form -->
-  <form method="POST" enctype="multipart/form-data">
-    <div class="choosefile-wrapper">
-      <label class="choosefile-button">
-        Choose Profile Picture
-        <input type="file" name="profile-pic" accept="image/*" required>
-      </label>
-    </div>
-      <button type="submit" class="submitpfp" >Upload</button>
+<form method="POST" enctype="multipart/form-data">
+  <div class="choosefile-wrapper">
+    <label class="choosefile-button">
+      Choose Profile Picture
+      <input type="file" name="profile-pic" accept="image/*" required>
+    </label>
+  </div>
+    <button type="submit" class="submitpfp" >Upload</button>
       
-  </form>
+</form>
 
-  <div class="user-name">
-    <p>Welcome, {{ user.first_name }}!</p>
+<div class="user-name">
+  <p>Welcome, {{ user.first_name }}!</p>
+</div>
+
+<div class="changepasswordtitle">    
+  <p>CHANGE PASSWORD</p>
+</div>
+
+  <form method="POST" action="{{ url_for('views.update_password') }}">
+
+  <div class="currentpasswordtitle">  
+    <label for="current_password">Current Password:</label>
+  </div>
+  
+  <div class="currentpasswordbutton">
+    <input type="password" name="current_password" id="current_password" required><br>
   </div>
 
-  <div class="changepasswordtitle">    
-    <p>CHANGE PASSWORD</p>
+  <div class="newpasswordbutton">
+    <label for="new_password">New Password:</label>
+    <input type="password" name="new_password" id= "new_password" required><br>
   </div>
 
-    <form method="POST" action="{{ url_for('views.update_password') }}">
+  <div class="confirmpasswordbutton">
+    <label for="confirm_password">Confirm New Password:</label>
+    <input type="password" name="confirm_password" id="confirm_password" required><br>
+  </div>
 
-    <div class="currentpasswordtitle">  
-      <label for="current_password">Current Password:</label>
-    </div>
+  <button type="submit" class="submitpasswordbutton">Update Password</button>
+</form>
   
-    <div class="currentpasswordbutton">
-      <input type="password" name="current_password" required><br>
-    </div>
+  <div class="changeemailtitle">    
+    <p>CHANGE EMAIL</p>
+  </div>
 
-    <div class="newpasswordbutton">
-      <label for="new_password">New Password:</label>
-      <input type="password" name="new_password" required><br>
-    </div>
+  <form method="POST" action="{{ url_for('views.update_email') }}">
 
-    <div class="confirmpasswordbutton">
-      <label for="confirm_password">Confirm New Password:</label>
-      <input type="password" name="confirm_password" required><br>
-    </div>
-
-    <button type="submit" class="submitpasswordbutton">Update Password</button>
-  </form>
+  <div class="currentemailtitle">  
+    <label for="current_email">Current Email:</label>
+  </div>
   
+  <div class="currentemailbutton">
+    <input type="email" name="current_email" id="current_email" required><br>
+  </div>
 
-  <br>
-  {% endblock %}
-</body>
-</html>
+  <div class="newemailbutton">
+    <label for="new_email">New Email:</label>
+    <input type="email" name="new_email" id= "new_email" required><br>
+  </div>
+
+  <button type="submit" class="submitemailbutton">Update Email</button>
+</form>
+
+<br>
+{% endblock %}
+

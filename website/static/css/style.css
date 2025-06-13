@@ -253,12 +253,7 @@ html, body {
   margin-top: -39px;
 }
 
-.confirmpasswordbutton{
-  margin-left: 1030px;
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
-  margin-top: -35px;
-}
+
 
 .submitpasswordbutton{
   font-family: "League Spartan", sans-serif;
@@ -296,4 +291,56 @@ html, body {
 .container-fluid{
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+.flash-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert .close {
+  margin-left: 1rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  
+}
+
+.flash-message-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050; /* Above everything else */
+  pointer-events: none; /* Prevents clicks from affecting layout */
+}
+
+.flash-message {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  text-align: center;
 }
