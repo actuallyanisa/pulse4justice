@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stripe Connect Demo</title>
+  <style>
+    .hidden { display: none; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Connect Your Stripe Account</h1>
+
+  <button id="sign-up-button">Sign Up</button>
+  <div id="connected-account-id" class="hidden"></div>
+  <button id="add-information-button" class="hidden">Add Information</button>
+  <div id="dev-callout" class="hidden">Developer Callout</div>
+  <div id="creating-connected-account" class="hidden">Creating Connected Account...</div>
+  <div id="error" class="hidden" style="color: red;">An error occurred.</div>
+
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>

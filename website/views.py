@@ -6,6 +6,14 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash, generate_password_hash
 from .models import User
 from . import db
+from stripe_config import stripe
+from flask import send_from_directory
+from dotenv import load_dotenv
+from .models import Fundraiser
+
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
+
+
 
 views = Blueprint('views', __name__)
 
@@ -95,7 +103,15 @@ def updates():
     return render_template('aboutus.html')
 
 @views.route('/shareyourstory')
+@login_required
 def shareyourstory():
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
+        new_story = Fundraiser(title=title, description=description, user_id=current_user.id)
+        db.session.add(new_story)
+        db.session.commit()
+        return redirect(url_for('views.view_story', fundraiser_id=new_story.id))
     return render_template('shareyourstory.html')
 
 @views.route('/error')
@@ -105,3 +121,62 @@ def error():
 @views.route('/signup')
 def signup():
     return render_template('sign_up.html')
+
+@views.route('/account_link', methods=['POST'])
+def create_account_link():
+    try:
+        connected_account_id = request.get_json().get('account')
+
+        account_link = stripe.AccountLink.create(
+          account=connected_account_id,
+          return_url=f"http://localhost:4242/return/{connected_account_id}",
+          refresh_url=f"http://localhost:4242/refresh/{connected_account_id}",
+          type="account_onboarding",
+        )
+
+        return jsonify({
+          'url': account_link.url,
+        })
+    except Exception as e:
+        print('An error occurred when calling the Stripe API to create an account link: ', e)
+        return jsonify(error=str(e)), 500
+    
+@views.route('/connect')
+def connect():
+    return render_template('index.html')
+
+@views.route('/account', methods=['POST'])
+def create_account():
+    try:
+        account = stripe.Account.create(
+          controller={
+            "stripe_dashboard": {
+              "type": "express",
+            },
+            "fees": {
+              "payer": "application"
+            },
+            "losses": {
+              "payments": "application"
+            },
+          },
+        )
+
+        return jsonify({
+          'account': account.id,
+        })
+    except Exception as e:
+        print('An error occurred when calling the Stripe API to create an account: ', e)
+        return jsonify(error=str(e)), 500
+
+@views.route('/', defaults={'path': ''})
+
+# Flask does not like serving static files with a sub-path, so just force them to serve up the frontend here
+@views.route('/return/<path>')
+@views.route('/refresh/<path>')
+@views.route('/<path:path>')
+def catch_all(path, **kwargs):
+        if path and os.path.exists(os.path.join(views.static_folder, path)):
+            return send_from_directory(views.static_folder, path)
+        else:
+            return send_from_directory(views.static_folder, 'index.html')
