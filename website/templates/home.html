@@ -9,28 +9,32 @@
 <body>
   {% block content %}
     <style>
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
       body {
         margin: 0;
-        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        justify-content: center;
       }
 
       .hero-image-wrapper {
         position: relative;
-        min-width: 100vw;
-        height: 90vh;
+        width: 100%;
         overflow: hidden;
-        margin-bottom: 2rem;
+        margin: 0;
+        padding: 0;
         background-color: black;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box;
-        scroll-snap-align: start;
-        flex-shrink:0;
+        
       }
 
       .heroimg {
         width: 100%;
-        height: 100%;
+        height: auto;
+        max-width: 100%;
         object-fit: cover;
         display: block;
         -webkit-mask-image: linear-gradient(to left, black 0%, black 65%, transparent 100%);
@@ -39,6 +43,7 @@
         mask-size: 100% 100%;
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;
+        
       }
 
       .hero-overlay-gradient {
@@ -96,10 +101,11 @@
         font-weight: 600;
       }
 
-    .square {
+    
+      .square {
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 30px; /* spacing between squares */
+      gap: 30px;
       padding: 70px;
     }
 
@@ -110,23 +116,26 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 300px;
-      width: 400px;
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      max-width: 400px;
+      margin: auto;
     }
 
     .item img {
       width: 100%;
-      height: 850%;
+      height: 100%;
       object-fit: cover;
-    }
-
-    .item p {
-      font-size: 1em;
+      display: block;
     }
 
       .footerimg{
         padding-top: 100px;
         width:100%;
+        padding-top: 100px;
+        height: auto;
+        display: block;
+        max-width: 100%;
       }
 
       .footerimg-container {
@@ -185,9 +194,12 @@
       width:100%;
     }
 
-</style>
+    .horizontal-scroll-container {
+      display: block;
+    }
+    
 
-    </style>
+</style>
 
     <div class="horizontal-scroll-container">
       <!-- HERO IMAGE SECTION -->
