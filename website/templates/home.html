@@ -3,7 +3,7 @@
   {% block title %}Home{% endblock %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     <style>
       body {
         margin: 0;
-        font-family: 'League Spartan', sans-serif;
+        font-family: 'Montserrat', sans-serif;
       }
 
       .hero-image-wrapper {
@@ -33,8 +33,8 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        -webkit-mask-image: linear-gradient(to right, black 0%, black 65%, transparent 100%);
-        mask-image: linear-gradient(to right, black 0%, black 65%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to left, black 0%, black 65%, transparent 100%);
+        mask-image: linear-gradient(to left, black 0%, black 65%, transparent 100%);
         -webkit-mask-size: 100% 100%;
         mask-size: 100% 100%;
         -webkit-mask-repeat: no-repeat;
@@ -47,7 +47,7 @@
         right: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
+        background: linear-gradient(to left, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -55,15 +55,16 @@
       }
 
       .hero-text {
-        margin-top: 500px;
-        margin-right: -300px;
+        margin-top: 500px
         transform: translate(-50%, -50%);
         color: white;
-        text-align: right;
+        text-align: left;
         z-index: 2;
         max-width: 800px;
         padding: 1rem;
         max-width: 40%;
+        padding-top: 100px;
+        margin-right: 850px;
       }
 
       .hero-text h1 {
@@ -94,31 +95,156 @@
         font-size: 1.5rem;
         font-weight: 600;
       }
+
+    .square {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 30px; /* spacing between squares */
+      padding: 70px;
+    }
+
+    .item {
+      background-color: #f0f0f0;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 300px;
+      width: 400px;
+    }
+
+    .item img {
+      width: 100%;
+      height: 850%;
+      object-fit: cover;
+    }
+
+    .item p {
+      font-size: 1em;
+    }
+
+      .footerimg{
+        padding-top: 100px;
+        width:100%;
+      }
+
+      .footerimg-container {
+      position: relative;
+      display: inline-block;
+      width:100%;
+    }
+
+    .footerimg-container img {
+      display: block;
+      width: 100%; /* or set a specific width like 600px */
+      height: auto;
+    }
+
+    .footerimg-container .shareurstory {
+      position: absolute;
+      top: 84%;  /* vertical position */
+      left: 1%; /* horizotal position */
+      background-color: #d9d9d9;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-family: "League Spartan", sans-serif;
+      width:180px ;
+      height:40px ;
+      font-size: large;
+      padding-right: .5rem;
+      padding-left: .5rem;
       
+    }
+
+    .footerimg-container .pulseforjusticelink {
+      position: absolute;
+      top: 73%;  /* vertical position */
+      left: 43%; /* horizontal position */
+      background-color: #bc1823;
+      color: white;
+      border: none;
+      font-family: Montserrat;
+      font-size: 19px;
+    }
+
+    .footerimg-container .pulseforjustice {
+      position: absolute;
+      top: 86%;  /* vertical position */
+      left: 44%; /* horizontal position */
+      background-color: #bc1823;
+      color: white;
+      border: none;
+      font-family: Montserrat;
+      font-size: 19px;
+    }
+
+    .bannerimg {
+      width:100%;
+    }
+
+</style>
+
     </style>
 
     <div class="horizontal-scroll-container">
       <!-- HERO IMAGE SECTION -->
       <div class="hero-image-wrapper">
-        <img src="{{ url_for('static', filename='images/hero.jpg') }}" class="heroimg" />
+        <img src="{{ url_for('static', filename='images/hero.png') }}" class="heroimg" />
         <div class="hero-overlay-gradient">
           <div class="hero-text">
-            <h1>Pulse for Justice</h1>
-            <p>Amplifying unheard voices in healthcare. Share your story, raise awareness, and drive change.</p>
-            <a href="/sharestoryhome">SHARE YOUR STORY</a>
+            <h1>One button. One <br> thousand helped. </h1>
+            <p>Every story is a spark that fuels real change. One button <br> connects individual struggles to trusted organizations,<br> driving support not just for one person but for entire <br> communities facing similar challenges. Together, a <br> single action becomes a movement that transforms lives.</p>
+            <a href="/donate">DONATE</a>
           </div>
         </div>
       </div>
-        <div class="explore">
-          <p>Explore More Stories:</p>
+      <div class="dividedbycause">
+        <p>
+          <span style="color: black;">Over 100 NGO’s in partnership <br> Focused on the fight,</span>
+          <span style="color: red;">divided by the cause</span>
+        </p>
+      </div>
+      <div class="square">
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Image 1">
         </div>
-
-        <div class="squares-wrapper">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image2.png') }}" alt="Image 2">
         </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image3.png') }}" alt="Image 3">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image4.png') }}" alt="Image 4">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image5.png') }}" alt="Image 5">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image6.png') }}" alt="Image 6">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image7.png') }}" alt="Image 7">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image8.png') }}" alt="Image 8">
+        </div>
+        <div class="item">
+          <img src="{{ url_for('static', filename='images/image9.png') }}" alt="Image 9">
+        </div>
+      </div>
+      <div class="bannerimg">
+        <img src="{{ url_for('static', filename='images/banner.png') }}" class="bannerimg" />
+      </div>
+      <div class="footerimg-container">
+        <img src="{{ url_for('static', filename='images/footer.png') }}" class="footerimg" />
+        <button class="shareurstory">SHARE YOUR STORY</button>
+        <button class="pulseforjustice">@pulseforjustice</button>
+        <button class="pulseforjusticelink">pulseforjustice.org</button>
+      </div>
   {% endblock %}
 </body>
 </html>
