@@ -2,240 +2,307 @@
 
 {% block content %}
 <style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-wrapper {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+
+  /* ===== Mission Section ===== */
   .mission-section {
     display: flex;
     align-items: center;
-    background-color: #696969;
-    max-width: 100vw;
-    margin: 0 auto 3rem;
     gap: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    padding: 2rem;
+    padding: 3rem 0;
   }
 
   .mission-image {
     flex-shrink: 0;
-    width: 360px;
-    height: 440px;
+    width: 400px;
+    height: 320px;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   .mission-text {
     flex-grow: 1;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
+    color: #000;
   }
 
   .mission-text h2 {
     font-weight: 900;
-    font-size: 2.8rem;
+    font-size: 3rem;
+    color: #650000;
     margin-bottom: 1rem;
-    line-height: 1.2;
   }
 
   .mission-text p {
-    font-weight: 400;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     white-space: normal;
   }
 
-  .card-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-    padding: 2rem;
-    margin-bottom: 4rem;
-  }
-
-  .card {
-    width: 300px;
-    background-color: #cc0000;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-  }
-
-  .card img {
+  /* ===== Founders Section ===== */
+  .founders-full-bg {
     width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    background-color: #5c0015;
+    color: white;
+    transform: translateX(-80px);
+    opacity: 0;
+    transition: transform 1.4s ease-out, opacity 1.4s ease-out;
+    display: block;
   }
 
-  .card-text {
-    padding: 1rem 1.2rem;
+  .founders-full-bg.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .founders-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 6vw;
+    opacity: 0;
+    transition: opacity 1.4s ease-out;
+  }
+
+  .founders-full-bg.visible .founders-section {
+    opacity: 1;
+  }
+
+  .founders-text {
+    max-width: 40%;
+  }
+
+  .founders-text h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .founders-text p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    white-space: normal;
+  }
+
+  .founder-images {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .founder {
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease-out;
+  }
+
+  .founders-full-bg.visible .founder {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .founder img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  .founder .name {
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .founder .role {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #f2bcbc;
+  }
+
+  /* ===== Our Story Section ===== */
+  .our-story-section {
+    background-color: white;
+    padding: 5rem 0;
+  }
+
+  .our-story-section h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #5c0015;
+    margin-bottom: 1.5rem;
+  }
+
+  .our-story-section p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #111;
+    white-space: normal;
+  }
+
+  /* ===== Footer Bar ===== */
+  .footer-bar {
+    background-color: #bb1e29;
+    color: white;
+    padding: 3rem 5vw 2rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    min-height: 250px;
+    position: relative;
+  }
+
+  .footer-left button {
+    background-color: #e0e0e0;
+    color: black;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    font-weight: 700;
     font-size: 1rem;
-    line-height: 1.6;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+    margin-left: 1vw;
+  }
+
+  .footer-left button:hover {
+    background-color: #d5d5d5;
+  }
+
+  .footer-right-centered {
     flex-grow: 1;
+    margin-left: 5vw; /* slight left shift for centering */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-
-  .card-text h3 {
-    margin: 0.4rem 0 0.2rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
-
-  .card-text h4 {
-    margin: 0;
-    font-weight: 400;
-    font-size: 1rem;
-    color: #ffcccc;
-  }
-
-  .story-rectangle {
-    width: 100vw;
-    margin: 4rem 0;
-    background-color: #990000;
-    color: #fff;
-    display: flex;
     align-items: center;
-    height: 400px;
-    overflow: hidden;
-    padding: 1.5rem 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 12px;
+    justify-content: center;
+    text-align: center;
   }
 
-  .story-image {
-    flex-shrink: 0;
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-right: 3rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  .footer-right-centered h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
   }
 
-  .story-text {
-    flex-grow: 1;
-    white-space: normal;
+  .footer-right-centered p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
   }
 
-  .story-text h2 {
-    margin: 0 0 0.5rem 0;
-    font-weight: 900;
-    font-size: 2rem;
-  }
-
-  .story-text p {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 700px;
-    white-space: normal;
-  }
-
-  @media (max-width: 900px) {
-    .mission-section {
-      flex-direction: column;
-      padding: 3rem 2rem;
-      gap: 2rem;
-    }
-    .mission-image {
-      width: 100%;
-      height: 200px;
-    }
-    .mission-text h2 {
-      font-size: 2rem;
-      text-align: center;
-    }
-    .mission-text p {
-      font-size: 1.1rem;
-      text-align: center;
-    }
-    .story-rectangle {
-      flex-direction: column;
-      height: auto;
-      padding: 2rem 1.5rem;
-    }
-    .story-image {
-      width: 100%;
-      height: 160px;
-      margin: 0 0 1.5rem 0;
-    }
-    .story-text h2 {
-      font-size: 1.8rem;
-      text-align: center;
-    }
-    .story-text p {
-      font-size: 1rem;
-      text-align: center;
-      max-width: 100%;
-    }
-  }
-
-  body {
-    overflow-x: hidden;
+  .footer-right-centered i {
+    margin-right: 6px;
   }
 </style>
 
 <!-- ===== Mission Section ===== -->
-<div class="mission-section">
-  <img src="{{ url_for('static', filename='images/healthcare_equity.jpg') }}" alt="Healthcare Equity" class="mission-image" />
-  <div class="mission-text">
-    <h2>Our Mission</h2>
-    <p>
-      Pulse for Justice was founded on the belief that justice must begin with listening. In every community, there are voices—often overlooked, often silenced—that carry the weight of healthcare inequity, racial bias, financial hardship, and unspoken trauma. We are here to change that. Our mission is to hold space for the stories that deserve to be heard and to transform them into a force for systemic change. We believe in technology not as a solution alone, but as a megaphone—one that can amplify real pain, demand accountability, and drive policy and compassion alike. Every testimony we collect is a thread in the fabric of collective healing. This isn’t just a platform. This is a movement.
-    </p>
+<div class="section-wrapper">
+  <div class="mission-section">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>
+        
+At Pulse for Justice, we believe healing begins with being heard. Our mission is to build a community where stories of injustice are met with compassion and where those stories spark collective action. By centering lived experience and shared humanity, we reach beyond just statstics; we turn pain into purpose and voices into change.
+      </p>
+    </div>
+    <img src="/mnt/data/Screenshot 2025-06-13 151405.png" alt="Healthcare Inclusion Image" class="mission-image">
   </div>
 </div>
 
-<!-- ===== Team Cards ===== -->
-<div class="card-container">
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/rohini_new.jpg') }}" alt="Rohini Vedam">
-    <div class="card-text">
-      <h3>Rohini Vedam</h3>
-      <h4>Founder and Developer</h4>
-      <p>"Every story we share sparks a <br> movement. I’m here to ensure those <br> sparks ignite real change."</p>
+<!-- ===== Founders Section ===== -->
+<div class="founders-full-bg" id="foundersSection">
+  <div class="founders-section">
+    <div class="founders-text">
+      <h2>Meet the Founders</h2>
+      <p>
+        Nicknamed the powerpuff trio, three highschoolers united to create a platform at the conjunction of healthcare, advocacy, and computer science. Culminated from over a year of hardwork and development, the team combined their interests and experience to extend a listening ear and create a comfortable space for all.
+      </p>
     </div>
-  </div>
-
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/anisa_new.jpg') }}" alt="Anisa Chandra">
-    <div class="card-text" style= "word-wrap: break-word;">
-      <h3>Anisa Chandra</h3>
-      <h4>Founder & Designer</h4>
-      <p>"Data is more than numbers — it’s <br> the voice of the unheard. I build the <br> tools to make sure it’s heard <br>loud and clear."</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="{{ url_for('static', filename='images/ananya_new.jpg') }}" alt="Ananya Vinesh">
-    <div class="card-text">
-      <h3>Ananya Vinesh</h3>
-      <h4>Founder & Outreach</h4>
-      <p>"Technology is our ally in justice — I <br> create platforms where real pain meets <br> real power."</p>
+    <div class="founder-images">
+      <div class="founder">
+        <img src="https://placebear.com/240/240" alt="Rohini Vedam">
+        <div class="name">Rohini Vedam</div>
+        <div class="role">Founder and Developer</div>
+      </div>
+      <div class="founder">
+        <img src="https://placebear.com/240/240" alt="Ananya Vinesh">
+        <div class="name">Ananya Vinesh</div>
+        <div class="role">Founder and Outreach</div>
+      </div>
+      <div class="founder">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmnn_sOYYp6yR_X-_zNwOHaLRvDflafFZ_tw&s" alt="Anisa Chandra">
+        <div class="name">Anisa Chandra</div>
+        <div class="role">Founder and Designer</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ===== Our Story ===== -->
-<div class="story-rectangle">
-  <img src="{{ url_for('static', filename='images/our_story.jpg') }}" alt="Our Story" class="story-image" />
-  <div class="story-text">
+<!-- ===== Our Story Section ===== -->
+<div class="section-wrapper">
+  <div class="our-story-section">
     <h2>Our Story</h2>
     <p>
-      Pulse for Justice was born from a passion to amplify voices too often ignored. Through technology, we collect stories of hardship and resilience, turning them into a powerful force for change. Our mission is to transform pain into progress—one testimony at a time.
+      Pulse for Justice started as a conversation among friends—one that grew into a vision for something larger. With members from the Asian, LGBTQIA+, and female community, our own daily experiences have shaped our vision for the world, and as young women leaders, we aim to fight discrimination in the crucial system of healthcare.
     </p>
   </div>
 </div>
+
+<!-- ===== Footer Bar ===== -->
+<div class="footer-bar">
+  <div class="footer-left" style="align-self: flex-end;">
+    <button>Share your own story</button>
+  </div>
+
+  <div class="footer-right-centered" style="margin-left: 0; transform: translate(-82px, -30px);">
+    <h3 style="font-size: 1.5rem; font-weight: 600;">Interested in a partnership?</h3>
+    <p style="font-size: 1.1rem;">Contact us at:</p>
+    <p style="font-size: 1.1rem;">pulseforjustice.org</p>
+    <p style="font-size: 1.1rem;">
+      <a href="https://www.instagram.com/ananya._vinesh" target="_blank" style="color: white; text-decoration: none;">
+        <i class="fa fa-instagram" style="font-size: 1.3rem; position: relative; top: 2px; left: 4px;"></i> @pulseforjustice
+      </a>
+    </p>
+  </div>
+</div>
+
+<!-- JavaScript: Reveal Founders Section on Scroll -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    const target = document.getElementById('foundersSection');
+    if (target) {
+      observer.observe(target);
+    }
+  });
+</script>
+
+<!-- FontAwesome (Instagram Icon) -->
+<script src="https://kit.fontawesome.com/6b6d3e2a89.js" crossorigin="anonymous"></script>
 {% endblock %}

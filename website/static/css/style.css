@@ -118,17 +118,8 @@ html, body {
   font-weight: bold;
 }
 
-.horizontal-scroll-container {
-  display: flex;
-  flex-direction: column;
-  overflow-x: scroll;
-  width: 100%;
-}
-
 .page-content {
-  display: flex;
   flex-direction: column;
-  width: 100vw;
   box-sizing: border-box;
   white-space: normal;
 }
