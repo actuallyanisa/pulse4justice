@@ -1,77 +1,65 @@
-
 {% extends "base.html" %}
 {% block content %}
 
-  <!-- Show current profile picture -->
-<div class="pfp-wrapper">
-  <img src="{{ profile_image }}" alt="Profile Picture">
+<div class="container py-5" style="max-width: 600px;">
+
+  <!-- Profile Picture -->
+  <div class="text-center mb-4">
+    <img src="{{ profile_image }}" alt="Profile Picture" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px; object-fit: cover;">
+  </div>
+
+  <!-- Upload Form -->
+  <form method="POST" enctype="multipart/form-data" class="mb-5">
+    <div class="form-group">
+      <label for="profile-pic" class="btn btn-primary btn-block">
+        Choose Profile Picture
+        <input type="file" name="profile-pic" id="profile-pic" accept="image/*" required hidden>
+      </label>
+    </div>
+    <button type="submit" class="btn btn-success btn-block">Upload</button>
+  </form>
+
+  <!-- Welcome Message -->
+  <div class="mb-5 text-center">
+    <h4>Welcome, {{ user.first_name }}!</h4>
+  </div>
+
+  <!-- Change Password -->
+  <div class="mb-4">
+    <h5 class="mb-3">Change Password</h5>
+    <form method="POST" action="{{ url_for('views.update_password') }}">
+      <div class="form-group">
+        <label for="current_password">Current Password</label>
+        <input type="password" name="current_password" id="current_password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="new_password">New Password</label>
+        <input type="password" name="new_password" id="new_password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm New Password</label>
+        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Update Password</button>
+    </form>
+  </div>
+
+  <!-- Change Email -->
+  <div class="mb-4">
+    <h5 class="mb-3">Change Email</h5>
+    <form method="POST" action="{{ url_for('views.update_email') }}">
+      <div class="form-group">
+        <label for="current_email">Current Email</label>
+        <input type="email" name="current_email" id="current_email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="new_email">New Email</label>
+        <input type="email" name="new_email" id="new_email" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Update Email</button>
+    </form>
+  </div>
+
 </div>
 
-  <!-- Upload form -->
-<form method="POST" enctype="multipart/form-data">
-  <div class="choosefile-wrapper">
-    <label class="choosefile-button">
-      Choose Profile Picture
-      <input type="file" name="profile-pic" accept="image/*" required>
-    </label>
-  </div>
-    <button type="submit" class="submitpfp" >Upload</button>
-      
-</form>
-
-<div class="user-name">
-  <p>Welcome, {{ user.first_name }}!</p>
-</div>
-
-<div class="changepasswordtitle">    
-  <p>CHANGE PASSWORD</p>
-</div>
-
-  <form method="POST" action="{{ url_for('views.update_password') }}">
-
-  <div class="currentpasswordtitle">  
-    <label for="current_password">Current Password:</label>
-  </div>
-  
-  <div class="currentpasswordbutton">
-    <input type="password" name="current_password" id="current_password" required><br>
-  </div>
-
-  <div class="newpasswordbutton">
-    <label for="new_password">New Password:</label>
-    <input type="password" name="new_password" id= "new_password" required><br>
-  </div>
-
-  <div class="confirmpasswordbutton">
-    <label for="confirm_password">Confirm New Password:</label>
-    <input type="password" name="confirm_password" id="confirm_password" required><br>
-  </div>
-
-  <button type="submit" class="submitpasswordbutton">Update Password</button>
-</form>
-  
-  <div class="changeemailtitle">    
-    <p>CHANGE EMAIL</p>
-  </div>
-
-  <form method="POST" action="{{ url_for('views.update_email') }}">
-
-  <div class="currentemailtitle">  
-    <label for="current_email">Current Email:</label>
-  </div>
-  
-  <div class="currentemailbutton">
-    <input type="email" name="current_email" id="current_email" required><br>
-  </div>
-
-  <div class="newemailbutton">
-    <label for="new_email">New Email:</label>
-    <input type="email" name="new_email" id= "new_email" required><br>
-  </div>
-
-  <button type="submit" class="submitemailbutton">Update Email</button>
-</form>
-
-<br>
 {% endblock %}
-
