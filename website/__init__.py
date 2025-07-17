@@ -61,11 +61,6 @@ def create_app():
             profile_image = url_for('static', filename='images/default.jpg')
         return dict(user=current_user, profile_image=profile_image)
 
-    # Set Stripe API key from environment
-    stripe_key = os.getenv('STRIPE_SECRET_KEY')
-    if not stripe_key:
-        raise Exception("Stripe API key not set in environment variable STRIPE_SECRET_KEY")
-    stripe.api_key = stripe_key
 
     return app
 

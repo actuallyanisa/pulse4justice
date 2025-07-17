@@ -6,12 +6,10 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import check_password_hash, generate_password_hash
 from .models import User
 from . import db
-from stripe_config import stripe
 from flask import send_from_directory
 from dotenv import load_dotenv
 from .models import Fundraiser
 
-stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 
 
 
@@ -102,17 +100,11 @@ def donate():
 def updates():
     return render_template('aboutus.html')
 
-@views.route('/shareyourstory')
+@views.route('/form')
 @login_required
-def shareyourstory():
-    if request.method == 'POST':
-        title = request.form['title']
-        description = request.form['description']
-        new_story = Fundraiser(title=title, description=description, user_id=current_user.id)
-        db.session.add(new_story)
-        db.session.commit()
-        return redirect(url_for('views.view_story', fundraiser_id=new_story.id))
-    return render_template('shareyourstory.html')
+def form():
+    return render_template('form.html')
+    
 
 @views.route('/error')
 def error():
@@ -121,6 +113,8 @@ def error():
 @views.route('/signup')
 def signup():
     return render_template('sign_up.html')
+
+
 
 @views.route('/lgbtqiadiscrimination')
 def lgbtqiadiscrimination():
