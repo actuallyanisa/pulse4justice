@@ -121,3 +121,39 @@ def error():
 @views.route('/signup')
 def signup():
     return render_template('sign_up.html')
+
+@views.route('/lgbtqiadiscrimination')
+def lgbtqiadiscrimination():
+    return render_template('lgbtqiadiscrimination.html')
+
+@views.route('/ableism')
+def ableism():
+    return render_template('ableism.html')
+
+@views.route('/religiousdiscrimination')
+def religiousdiscrimination():
+    return render_template('religiousdiscrimination.html')
+
+@views.route('/classism')
+def classism():
+    return render_template('classism.html')
+
+@views.route('/sexism')
+def sexism():
+    return render_template('sexism.html')
+
+@views.route('/racism')
+def racism():
+    return render_template('racism.html')
+
+@views.route('/mentalhealthstigmatization')
+def mentalhealthstigmatization():
+    return render_template('mentalhealthstigmatization.html')
+
+@views.route('/linguisticdiscrimination')
+def linguisticdiscrimination():
+    return render_template('linguisticdiscrimination.html')
+
+@views.route('/ageism')
+def ageism():
+    return render_template('ageism.html')
