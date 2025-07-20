@@ -22,13 +22,14 @@
     padding: 3rem 0;
   }
 
-  .mission-image {
+  .about-img{
     flex-shrink: 0;
     width: 400px;
     height: 320px;
     object-fit: cover;
     border-radius: 0; /* square borders */
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 100px;
   }
 
   .mission-text {
@@ -221,7 +222,7 @@
 At Pulse for Justice, we believe healing begins with being heard. Our mission is to build a community where stories of injustice are met with compassion and where those stories spark collective action. By centering lived experience and shared humanity, we reach beyond just statstics; we turn pain into purpose and voices into change.
       </p>
     </div>
-    <img src="/mnt/data/Screenshot 2025-06-13 151405.png" alt="Healthcare Inclusion Image" class="mission-image">
+    <img src="{{ url_for('static', filename='images/aboutus.png') }}" class="about-img">
   </div>
 </div>
 
