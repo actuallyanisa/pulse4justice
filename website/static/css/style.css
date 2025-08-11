@@ -376,3 +376,627 @@ html, body {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 2px solid #c4302b;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 30px 40px 20px;
+    background: white;
+}
+
+.banner-section {
+    height: 250px;
+    background-color: #c4302b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 40px 30px;
+    border-radius: 8px;
+}
+
+.banner-upload {
+    border: 2px dashed rgba(255,255,255,0.5);
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.banner-upload:hover {
+    border-color: white;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.left-column {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.right-column {
+    background: #e5e5e5;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c4302b;
+}
+
+.form-group textarea {
+    height: 200px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #c4302b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #c4302b;
+    margin: 0 auto 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.amount-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.amount-input {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #c4302b;
+}
+
+.donate-btn,
+.share-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.donate-btn {
+    background-color: white;
+    color: #c4302b;
+    border: 2px solid #c4302b;
+}
+
+.donate-btn:hover {
+    background-color: #c4302b;
+    color: white;
+}
+
+.share-btn {
+    background-color: white;
+    color: #666;
+    border: 2px solid #ddd;
+}
+
+.share-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.wishlist {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.wishlist h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.wishlist-item input {
+    margin-right: 10px;
+}
+
+.ngo-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ngo-logo {
+    width: 80px;
+    height: 80px;
+    background-color: #c4302b;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.ngo-links a {
+    color: #4285f4;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.ngo-links a:hover {
+    text-decoration: underline;
+}
+
+.thoughts-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.thoughts-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.comment-btn {
+    background-color: #c4302b;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.comment-btn:hover {
+    background-color: #a02822;
+}
+
+.related-stories {
+    margin-top: 40px;
+}
+
+.related-stories h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.story-card {
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2rem;
+        padding: 20px 30px 15px;
+    }
+
+    .banner-section {
+        margin: 0 20px 20px;
+    }
+}
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Header */
+.header {
+  background: white;
+  border: 2px solid #c4302b;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  padding: 2rem 2.5rem 1rem;
+  background: white;
+}
+
+.banner-section {
+  height: 250px;
+  background-color: #c4302b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  margin: 0 2rem 2rem;
+  text-align: center;
+}
+
+.banner-upload {
+  border: 2px dashed rgba(255,255,255,0.6);
+  padding: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.banner-upload:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Main Layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.left-column,
+.right-column {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 2rem;
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #c4302b;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+/* Progress */
+.progress-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 8px solid #c4302b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #c4302b;
+  margin: 1rem auto;
+  transition: all 0.3s ease;
+}
+
+.amount-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.amount-input {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #c4302b;
+  margin-bottom: 1rem;
+  border: none;
+  background: transparent;
+  text-align: center;
+}
+
+/* Buttons */
+.donate-btn,
+.share-btn {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.donate-btn {
+  background: #c4302b;
+  color: white;
+  border-color: #c4302b;
+}
+
+.donate-btn:hover {
+  background: white;
+  color: #c4302b;
+}
+
+.share-btn {
+  background: #f0f0f0;
+  color: #555;
+  border-color: #ddd;
+}
+
+.share-btn:hover {
+  background: #e6e6e6;
+}
+
+/* Wishlist */
+.wishlist {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.wishlist h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: white;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.wishlist-item input {
+  margin-right: 0.75rem;
+}
+
+/* NGO Section */
+.ngo-section {
+  text-align: center;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  border: 1px solid #eee;
+}
+
+.ngo-logo {
+  width: 80px;
+  height: 80px;
+  background: #c4302b;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.ngo-links a {
+  margin: 0 10px;
+  color: #4285f4;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.ngo-links a:hover {
+  text-decoration: underline;
+}
+
+/* Thoughts Section */
+.thoughts-section {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 3rem;
+}
+
+.thoughts-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.comment-btn {
+  background: #c4302b;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.comment-btn:hover {
+  background: #a02822;
+}
+
+/* Related Stories */
+.related-stories {
+  margin-top: 2rem;
+}
+
+.related-stories h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.story-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .main-content {
+      grid-template-columns: 1fr;
+  }
+
+  .title {
+      font-size: 1.75rem;
+      padding: 1.5rem;
+  }
+
+  .banner-section {
+      margin: 0 1rem 1.5rem;
+      font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+      font-size: 0.95rem;
+  }
+}

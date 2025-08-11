@@ -26,10 +26,10 @@
             Basic Information
           </h2>
           <label class="block text-sm font-medium text-gray-700 mb-2">Fundraiser Title *</label>
-          <input type="text" name="title" placeholder="e.g., Help for Jane's Surgery" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" />
+          <input type="text" name="title" placeholder="e.g., Help for Jane's Surgery" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required />
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-          <select name="category" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500">
+          <select name="category" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required>
             <option value="">Select a category</option>
             <option>Racism</option>
             <option>Sexism</option>
@@ -43,7 +43,7 @@
           </select>
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Fundraising Goal *</label>
-          <input type="number" name="goal" placeholder="e.g., 5000" min="0" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" />
+          <input type="number" name="goal" placeholder="e.g., 5000" min="0" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required />
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
           <input type="text" name="location" placeholder="Region, California" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" />
@@ -71,14 +71,17 @@
           <textarea name="otherInfo" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
         </section>
 
-        <!-- NGO Selection -->
-    
-
         <!-- Wishlist -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Wishlist</h2>
           <div id="wishlistContainer"></div>
-          <button type="button" onclick="addWishlistItem()" class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700 hover:border-red-800 hover:text-red-800 transition-colors">Add Item</button>
+          <button
+            type="button"
+            id="addItemBtn"
+            class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700 hover:border-red-800 hover:text-red-800 transition-colors"
+          >
+            Add Item
+          </button>
         </section>
 
         <!-- Media Upload -->
@@ -91,8 +94,6 @@
         <!-- Story -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Tell Your Story</h2>
-        
-
           <label class="block text-sm font-medium text-gray-700 mb-2">Full Story</label>
           <textarea name="story" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
         </section>
@@ -101,16 +102,16 @@
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Organizer Information</h2>
           <label class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
-          <input type="text" name="organizerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <input type="text" name="organizerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-          <input type="email" name="organizerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <input type="email" name="organizerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
           <input type="tel" name="organizerPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
 
           <label class="block text-sm font-medium text-gray-700 mb-2">Relationship to Beneficiary *</label>
-          <input type="text" name="relationship" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <input type="text" name="relationship" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
         </section>
 
         <!-- PayPal Info -->
@@ -123,7 +124,7 @@
         <!-- Submit -->
         <div class="flex gap-4 pt-6">
           <button type="submit" class="flex-1 bg-red-700 hover:bg-red-800 text-white font-semibold py-4 px-8 rounded-lg">Create Fundraiser</button>
-          <button type="button" class="px-8 py-4 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50">Save Draft</button>
+
         </div>
       </form>
     </div>
@@ -131,55 +132,63 @@
 </div>
 
 <script>
-  fetch('./website/templates/ngos.json)
-    .then(response => response.json())
-    .then(ngos => {
-      const select = document.getElementById("ngoSelect");
-      ngos.forEach(ngo => {
-        const option = document.createElement("option");
-        option.value = ngo;
-        option.textContent = ngo;
-        select.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading NGO list:', error);
+// Uncomment and fix this if you add an NGO select with id="ngoSelect"
+/*
+fetch('./website/templates/ngos.json')
+  .then(response => response.json())
+  .then(ngos => {
+    const select = document.getElementById("ngoSelect");
+    if (!select) return;
+    ngos.forEach(ngo => {
+      const option = document.createElement("option");
+      option.value = ngo;
+      option.textContent = ngo;
+      select.appendChild(option);
     });
+  })
+  .catch(error => {
+    console.error('Error loading NGO list:', error);
+  });
+*/
 
-  function addWishlistItem() {
-    const container = document.getElementById('wishlist-container');
+function previewMedia(event) {
+  const preview = document.getElementById('mediaPreview');
+  preview.innerHTML = '';
+  const files = event.target.files;
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'w-full h-32 object-cover rounded-lg';
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('wishlistContainer');
+  const addBtn = document.getElementById('addItemBtn');
+
+  addBtn.addEventListener('click', () => {
     const newItem = document.createElement('div');
-    newItem.classList.add('wishlist-item');
+    newItem.classList.add('wishlist-item', 'mb-6', 'pb-4', 'border-b');
+
     newItem.innerHTML = `
-      <input type="text" name="wishlist_item[]" placeholder="Item Name" required />
-      <input type="text" name="wishlist_description[]" placeholder="Description" />
-      <input type="number" name="wishlist_cost[]" placeholder="Estimated Cost" min="0" />
-      <button type="button" onclick="removeWishlistItem(this)">Remove</button>
-        <hr/>
+      <input type="text" name="item[]" placeholder="Item Name" required class="w-full px-4 py-2 border rounded mb-2" />
+      <input type="text" name="description[]" placeholder="Description" class="w-full px-4 py-2 border rounded mb-2" />
+      <input type="number" name="cost[]" placeholder="Estimated Cost" min="0" class="w-full px-4 py-2 border rounded mb-2" />
+      <button type="button" class="remove-btn text-red-600 hover:text-red-800">Remove</button>
     `;
 
-      container.appendChild(newItem);
-    }
-    function removeWishlistItem(button) {
-      const itemDiv = button.parentNode;
-      itemDiv.remove();
-    }
-
-  function previewMedia(event) {
-    const preview = document.getElementById('mediaPreview');
-    preview.innerHTML = '';
-    const files = event.target.files;
-    Array.from(files).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = e => {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.className = 'w-full h-32 object-cover rounded-lg';
-        preview.appendChild(img);
-      };
-      reader.readAsDataURL(file);
+    // Add remove functionality
+    newItem.querySelector('.remove-btn').addEventListener('click', () => {
+      newItem.remove();
     });
-  }
+
+    container.appendChild(newItem);
+  });
+});
 </script>
 {% endblock %}

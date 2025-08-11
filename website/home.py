@@ -9,3 +9,4 @@ from flask_login import current_user
 def home():
 
     return render_template("home.html", user=current_user)
+

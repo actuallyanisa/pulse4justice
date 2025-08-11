@@ -11,8 +11,6 @@ from dotenv import load_dotenv
 from .models import Fundraiser
 
 
-
-
 views = Blueprint('views', __name__)
 
 
@@ -151,3 +149,91 @@ def linguisticdiscrimination():
 @views.route('/ageism')
 def ageism():
     return render_template('ageism.html')
+
+from flask_mail import Message
+from . import mail
+
+@views.route('/submit', methods=['POST'])
+@login_required  # optionally require login if you want
+def submit():
+    data = request.form.to_dict(flat=False)
+
+    # Extract fields like you do in previous example
+    title = data.get('title', [''])[0]
+    category = data.get('category', [''])[0]
+    goal = data.get('goal', [''])[0]
+    location = data.get('location', [''])[0]
+    beneficiary = data.get('beneficiary', [''])[0]
+
+    gender = data.get('gender', [''])[0]
+    race = data.get('race', [''])[0]
+    sexualOrientation = data.get('sexualOrientation', [''])[0]
+    disabilities = data.get('disabilities', [''])[0]
+    otherInfo = data.get('otherInfo', [''])[0]
+
+    paypal = data.get('paypal', [''])[0]
+
+    organizerName = data.get('organizerName', [''])[0]
+    organizerEmail = data.get('organizerEmail', [''])[0]
+    organizerPhone = data.get('organizerPhone', [''])[0]
+    relationship = data.get('relationship', [''])[0]
+
+    story = data.get('story', [''])[0]
+
+    items = data.get('item[]', [])
+    descriptions = data.get('description[]', [])
+    costs = data.get('cost[]', [])
+
+    wishlist_text = ""
+    for i in range(len(items)):
+        item = items[i] if i < len(items) else ''
+        desc = descriptions[i] if i < len(descriptions) else ''
+        cost = costs[i] if i < len(costs) else ''
+        wishlist_text += f" - {item}: {desc}, Estimated cost: {cost}\n"
+    if not wishlist_text:
+        wishlist_text = "No wishlist items provided."
+
+    email_body = f"""
+New Fundraiser Submission:
+
+Title: {title}
+Category: {category}
+Fundraising Goal: {goal}
+Location: {location}
+Beneficiary: {beneficiary}
+
+Personal Details:
+- Gender: {gender}
+- Race/Ethnicity: {race}
+- Sexual Orientation: {sexualOrientation}
+- Disabilities or Accessibility Needs: {disabilities}
+- Other Info: {otherInfo}
+
+PayPal Email: {paypal}
+
+Organizer Information:
+- Name: {organizerName}
+- Email: {organizerEmail}
+- Phone: {organizerPhone}
+- Relationship to Beneficiary: {relationship}
+
+Wishlist:
+{wishlist_text}
+
+Story:
+{story}
+    """
+
+    try:
+        msg = Message(
+            subject="New Fundraiser Submission",
+            sender=current_app.config['MAIL_USERNAME'],
+            recipients=[current_app.config['MAIL_USERNAME']],
+            body=email_body
+        )
+        mail.send(msg)
+        flash("Form submitted successfully!", "success")
+        return redirect(url_for('views.home'))
+    except Exception as e:
+        flash(f"Failed to send email: {str(e)}", "danger")
+        return redirect(url_for('views.form'))
