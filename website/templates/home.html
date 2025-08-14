@@ -212,7 +212,7 @@
       </div>
       <div class="dividedbycause">
         <p>
-          <span style="color: black;">Over 100 NGO’s in partnership <br> Focused on the fight,</span>
+          <span style="color: black;">With partnerships across California <br> Focused on the fight,</span>
           <span style="color: red;">divided by the cause</span>
         </p>
       </div>
@@ -330,6 +330,42 @@
     word-wrap: break-word;
   }
 
+  .awoimg{
+    display: inline-block;
+    height: 150px;
+    width:150px;
+    margin-left: 80px;
+    margin-top: 40px
+    justify-content: center;
+  }
+
+  .diversabilityimg{
+    display: inline-block;
+    width: 400px;
+    height: 100px;
+    margin-left: 75px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .translifelineimg{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin-left: 75px;
+    margin-top: 40px
+    justify-content: center;
+  }
+
+  .sjpcimg{
+    display: inline-block;
+    width: 260px;
+    height: 150px;
+    margin-left: 75px;
+    margin-top: 40px
+    justify-content: center;
+  }
+
   .item:hover .label {
     transform: translateY(-1%); /* small controlled rise */
   }
@@ -400,14 +436,26 @@
   <div class="item">
     <img src="{{ url_for('static', filename='images/image9.png') }}">
     <div class="label">
-      Ableism
-      <div class="description">Denied proper care or accommodations due to physical or internal disability.</div>
+      Ageism
+      <div class="description">Denied proper care or accommodations due to age.</div>
     </div>
   </div>
 </div>
 </div>
       <div class="bannerimg">
         <img src="{{ url_for('static', filename='images/banner.png') }}" class="bannerimg" />
+      </div>
+      <div class="awoimg">
+        <img src="{{ url_for('static', filename='images/AWO.png') }}" class="awoimg" />
+      </div>
+      <div class="diversabilityimg">
+        <img src="{{ url_for('static', filename='images/diversability.png') }}" class="diversabilityimg" />
+      </div>
+      <div class="sjpcimg">
+        <img src="{{ url_for('static', filename='images/SJPC.jpg') }}" class="sjpcimg" />
+      </div>
+      <div class="translifelineimg">
+        <img src="{{ url_for('static', filename='images/translifeline.png') }}" class="translifelineimg" />
       </div>
       <div class="footer-bar">
         <div class="footer-left" style="align-self: flex-end;">
