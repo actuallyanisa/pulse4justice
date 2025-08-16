@@ -249,14 +249,70 @@ html, body {
 
 
 /*LOGIN PAGE ------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.signin{
+  padding-left: 675px;
+  z-index:3;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  top: 225px;
+}
+
+.rectangle {
+  width: 400px;       /* horizontal size */
+  height: 500px;      /* vertical size */
+  background-color: #f3f3f3; /* fill color */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  margin-left: 550px;
+  margin-top: 150px;
+  z-index:1;
+}
+
 .form-em{
-  padding-top:100px;
-  width:500px;
+  padding-top:305px;
+  width:890px;
+  padding-left: 600px;
+  z-index:2;
+  position: absolute;
 }
 
 .form-ps{
-  padding-top: 30px;
-  width:500px;
+  top:460px;
+  width:890px;
+  padding-left: 600px;
+  z-index:3;
+  position: absolute;
+}
+
+.btn-primary{
+  top:560px;
+  width:290px;
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  background-color: #bc1823;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.signup {
+  color: gray; /* first part */
+  text-decoration: none;
+  padding-left: 615px;
+  z-index:3;
+  top: 610px;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+}
+
+.signup .highlight {
+  color: steelblue; /* second part */
+  font-weight: bold;
+  font-weight: bold;
 }
 
 .container-fluid{
