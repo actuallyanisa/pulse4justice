@@ -378,63 +378,95 @@
 
 <div class="square">
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image1.png') }}">
+    <img 
+      src="{{ url_for('static', filename='images/image1.png') }}" 
+      onclick="window.location.href='{{ url_for('views.lgbtqiadiscrimination') }}'" 
+      style="cursor: pointer;"
+    >
     <div class="label">
       LGBTQ+ Discrimination
-      <div class="description">Bias or denial of care based on sexual orientation or gender identity, often with lasting harm.</div>
+      <div class="description">
+        Bias or denial of care based on sexual orientation or gender identity, often with lasting harm.
+      </div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image2.png') }}">
+    <img 
+      src="{{ url_for('static', filename='images/image2.png') }}"
+      onclick="window.location.href='{{ url_for('views.ableism') }}'" 
+      style="cursor: pointer;"
+    >
     <div class="label">
       Ableism
       <div class="description">Ignored or mistreated due to visible or invisible disabilities, excluding vital accommodations.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image3.png') }}">
+    <img 
+      src="{{ url_for('static', filename='images/image3.png') }}"
+      onclick="window.location.href='{{ url_for('views.religiousdiscrimination') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Religious Discrimination
       <div class="description">Care denied or forced based on spiritual beliefs, violating autonomy and dignity.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image4.png') }}">
+    <img src="{{ url_for('static', filename='images/image4.png') }}"
+      onclick="window.location.href='{{ url_for('views.classism') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Classism
       <div class="description">Limited or no access to care due to income, insurance gaps, or systemic financial hurdles.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image5.png') }}">
+    <img src="{{ url_for('static', filename='images/image5.png') }}"
+      onclick="window.location.href='{{ url_for('views.sexism') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Sexism
       <div class="description">Dismissed or denied treatment based on gender identity, often rooted in outdated stereotypes.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image6.png') }}">
+    <img src="{{ url_for('static', filename='images/image6.png') }}"
+      onclick="window.location.href='{{ url_for('views.racism') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Racism
       <div class="description">Denied care or treated unfairly due to racial or ethnic identity, from bias to systemic neglect.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image7.png') }}">
+    <img src="{{ url_for('static', filename='images/image7.png') }}"
+      onclick="window.location.href='{{ url_for('views.mentalhealthstigmatization') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Mental Health Stigmatization
       <div class="description">Mental conditions belittled or ignored, leading to serious barriers in treatment access.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image8.png') }}">
+    <img src="{{ url_for('static', filename='images/image8.png') }}"
+      onclick="window.location.href='{{ url_for('views.linguisticdiscrimination') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Linguistic Discrimination
       <div class="description">Misdiagnosis or exclusion due to lack of translation and cultural understanding in care.</div>
     </div>
   </div>
   <div class="item">
-    <img src="{{ url_for('static', filename='images/image9.png') }}">
+    <img src="{{ url_for('static', filename='images/image9.png') }}"
+      onclick="window.location.href='{{ url_for('views.ageism') }}'" 
+      style="cursor: pointer;"
+      >
     <div class="label">
       Ageism
       <div class="description">Denied proper care or accommodations due to age.</div>

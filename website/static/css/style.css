@@ -247,6 +247,87 @@ html, body {
   font-size: 20px;
 }
 
+/*SIGN UP PAGE -----------------------------------------------------------------------------------------------*/
+form label, form h3 {
+  font-size:large;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+
+.email-block{
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  font-weight: bold;
+  top: 200px;
+  width:290px;
+}
+
+.first-block{
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  font-weight: bold;
+  top: 290px;
+  width:290px;
+}
+
+.pass-block{
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  font-weight: bold;
+  top: 380px;
+  width:290px;
+}
+
+.confpass-block{
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  font-weight: bold;
+  font-size:large;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  top: 470px;
+  width:290px;
+  
+}
+
+.btn1-primary{
+  top:590px;
+  width:290px;
+  left: 600px;
+  z-index:3;
+  position: absolute;
+  background-color: #bc1823;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+#password2{
+  background-color: #e8f0fe;
+}
+
+#firstName{
+  background-color: #e8f0fe;
+}
+
+.login {
+  color: gray; /* first part */
+  text-decoration: none;
+  padding-left: 615px;
+  z-index:3;
+  top: 630px;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login .highlight {
+  color: steelblue; /* second part */
+  font-weight: bold;
+  font-weight: bold;
+}
 
 /*LOGIN PAGE ------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .flash-message {
@@ -287,6 +368,8 @@ html, body {
   padding-left: 600px;
   z-index:2;
   position: absolute;
+  font-size:large;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-ps{
@@ -295,6 +378,8 @@ html, body {
   padding-left: 600px;
   z-index:3;
   position: absolute;
+  font-size:large;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .btn-primary{
@@ -304,7 +389,7 @@ html, body {
   z-index:3;
   position: absolute;
   background-color: #bc1823;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: bold;
 }
 
@@ -1064,4 +1149,50 @@ textarea {
   .form-group textarea {
       font-size: 0.95rem;
   }
+}
+
+.updateemail{
+  background-color: #bc1823;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif !important;
+  border-radius: 6px;
+  padding-left: 10px;
+  left: 490px;
+  bottom: 45px;
+  padding-right: 10px;
+  position: relative !important;
+}
+
+.uppassword{
+  background-color: #bc1823;
+  font-weight: bold;
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif !important;
+  align-items: center; 
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pfpp{
+  background-color: #bc1823;
+  font-weight: bold;
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif !important;
+  align-items: center; 
+  border-radius: 6px;
+  padding-left: 90px;
+  width: 400px;
+}
+
+.uploadpfp{
+  background-color: #bc1823;
+  font-weight: bold;
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif !important;
+  align-items: center; 
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

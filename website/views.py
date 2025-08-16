@@ -9,6 +9,7 @@ from . import db
 from flask import send_from_directory
 from dotenv import load_dotenv
 from .models import Fundraiser
+from flask_login import login_user
 
 
 views = Blueprint('views', __name__)
@@ -108,8 +109,38 @@ def form():
 def error():
     return render_template('error.html')
 
-@views.route('/signup')
+@views.route('/signup', methods=['GET', 'POST'])
 def signup():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        first_name = request.form.get('firstName')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+        # check if user already exists
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            flash('Email is already registered.', category='error')
+        elif password1 != password2:
+            flash('Passwords do not match.', category='error')
+        elif len(password1) < 6:
+            flash('Password must be at least 6 characters.', category='error')
+        else:
+            # create new user
+            new_user = User(
+                email=email,
+                first_name=first_name,
+                password=generate_password_hash(password1, method='pbkdf2:sha256')
+            )
+            db.session.add(new_user)
+            db.session.commit()
+
+            # log the user in right away
+            login_user(new_user, remember=True)
+
+            flash('Account created and logged in!', category='success')
+            return redirect(url_for('views.home'))
+
     return render_template('sign_up.html')
 
 

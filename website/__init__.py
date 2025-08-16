@@ -7,6 +7,7 @@ from flask_mail import Mail
 from dotenv import load_dotenv
 from os import path
 
+
 load_dotenv()
 
 db = SQLAlchemy()
@@ -16,6 +17,8 @@ mail = Mail()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'your-secret-key'
+
+    app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/images')
 
     # DB config
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'

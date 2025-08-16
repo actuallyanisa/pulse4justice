@@ -11,12 +11,12 @@
   <!-- Upload Form -->
   <form method="POST" enctype="multipart/form-data" class="mb-5">
     <div class="form-group">
-      <label for="profile-pic" class="btn btn-primary btn-block">
+      <label for="profile-pic" class="pfpp">
         Choose Profile Picture
         <input type="file" name="profile-pic" id="profile-pic" accept="image/*" required hidden>
       </label>
     </div>
-    <button type="submit" class="btn btn-success btn-block">Upload</button>
+    <button type="submit" class="uploadpfp">Upload</button>
   </form>
 
   <!-- Welcome Message -->
@@ -40,14 +40,14 @@
         <label for="confirm_password">Confirm New Password</label>
         <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Update Password</button>
+      <button type="submit" class="uppassword">Update Password</button>
     </form>
   </div>
 
   <!-- Change Email -->
   <div class="mb-4">
     <h5 class="mb-3">Change Email</h5>
-    <form method="POST" action="{{ url_for('views.update_email') }}">
+    <form method="POST" action="{{ url_for('views.update_email') }}" id="change-email-form">
       <div class="form-group">
         <label for="current_email">Current Email</label>
         <input type="email" name="current_email" id="current_email" class="form-control" required>
@@ -56,10 +56,14 @@
         <label for="new_email">New Email</label>
         <input type="email" name="new_email" id="new_email" class="form-control" required>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">Update Email</button>
     </form>
   </div>
 
 </div>
+
+<!-- Fixed Update Email button -->
+<button type="submit" form="change-email-form" class="updateemail">
+  Update Email
+</button>
 
 {% endblock %}
