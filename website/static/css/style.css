@@ -249,6 +249,15 @@ html, body {
 
 
 /*LOGIN PAGE ------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.flash-message {
+  position: fixed;   /* stays on top of the page */
+  top: 20px;         /* distance from top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;    
+  background-color: #ffffff; 
+}
+
 .signin{
   padding-left: 675px;
   z-index:3;

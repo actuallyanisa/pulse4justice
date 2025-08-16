@@ -1,6 +1,33 @@
-{% extends "base.html" %}
+<head>
+  {% extends "base.html" %}
+  {% block title %}Home{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-{% block content %}
+</head>
+
+<body>
+  {% block content %}
+    <div class="disc-text">Discover Fundraisers Around <br> the World</div>
+        <div class="dropdown">
+        <button class="dropdown-button">
+            Mental Health Stigmatization
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="chevron-icon" style="height:20px !important; width:auto !important;">
+        <div class="dropdown-content">
+            <a href="/lgbtqiadiscrimination">LGBTQIA+ Discrimination</a>
+            <a href="/ableism">Ableism</a>
+            <a href="/religiousdescrimination">Religious Discrimination</a>
+            <a href="/classism">Classism</a>
+            <a href="/sexism">Sexism</a>
+            <a href="/racism">Racism</a>
+            <a href="/mentalhealthstigmatization">Mental Health Stigmatization</a>
+            <a href="/linguisticdiscrimination">Linguistic Discrimination</a>
+            <a href="/ageism">Ageism</a>
+        </div>
+    </div>
 
 
-{% endblock %}
+  {% endblock %}
+</body>
+</html>
