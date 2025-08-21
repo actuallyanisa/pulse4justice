@@ -17,19 +17,16 @@
       </div>
 
       <!-- Form -->
-      <form id="fundraiserForm" action="/submit" method="POST" enctype="multipart/form-data" class="space-y-10 p-8">
+      <form id="fundraiserForm" class="space-y-10 p-8">
 
         <!-- Basic Info Section -->
         <section class="space-y-6">
-          <h2 class="text-2xl font-semibold text-gray-800 flex items-center gap-2">
-            <svg class="lucide lucide-users w-6 h-6 text-red-700" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"><use href="#users" /></svg>
-            Basic Information
-          </h2>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Fundraiser Title *</label>
-          <input type="text" name="title" placeholder="e.g., Help for Jane's Surgery" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required />
+          <h2 class="text-2xl font-semibold text-gray-800">Basic Information</h2>
+          <label>Fundraiser Title *</label>
+          <input type="text" name="title" required placeholder="e.g., Help for Jane's Surgery" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-          <select name="category" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required>
+          <label>Category *</label>
+          <select name="category" required class="w-full px-4 py-3 border rounded-lg">
             <option value="">Select a category</option>
             <option>Racism</option>
             <option>Sexism</option>
@@ -42,153 +39,185 @@
             <option>Classism</option>
           </select>
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Fundraising Goal *</label>
-          <input type="number" name="goal" placeholder="e.g., 5000" min="0" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" required />
+          <label>Fundraising Goal *</label>
+          <input type="number" name="goal" min="0" required placeholder="e.g., 5000" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-          <input type="text" name="location" placeholder="Region, California" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" />
+          <label>Location</label>
+          <input type="text" name="location" placeholder="Region, California" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Beneficiary (if not yourself)</label>
-          <input type="text" name="beneficiary" placeholder="e.g., Jane Doe" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500" />
+          <label>Beneficiary (if not yourself)</label>
+          <input type="text" name="beneficiary" placeholder="e.g., Jane Doe" class="w-full px-4 py-3 border rounded-lg" />
         </section>
 
-        <!-- Personal Details Section -->
+        <!-- Personal Details -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Personal Details (Optional)</h2>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Gender Identity</label>
-          <input type="text" name="gender" placeholder="e.g., Non-binary" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <label>Gender Identity</label>
+          <input type="text" name="gender" placeholder="e.g., Non-binary" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Race/Ethnicity</label>
-          <input type="text" name="race" placeholder="e.g., Black or African American" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <label>Race/Ethnicity</label>
+          <input type="text" name="race" placeholder="e.g., Black or African American" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Sexual Orientation</label>
-          <input type="text" name="sexualOrientation" placeholder="e.g., Lesbian" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <label>Sexual Orientation</label>
+          <input type="text" name="sexualOrientation" placeholder="e.g., Lesbian" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Disabilities or Accessibility Needs</label>
-          <textarea name="disabilities" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
+          <label>Disabilities or Accessibility Needs</label>
+          <textarea name="disabilities" rows="3" class="w-full px-4 py-3 border rounded-lg"></textarea>
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Other Relevant Information</label>
-          <textarea name="otherInfo" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
+          <label>Other Relevant Information</label>
+          <textarea name="otherInfo" rows="3" class="w-full px-4 py-3 border rounded-lg"></textarea>
         </section>
 
         <!-- Wishlist -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Wishlist</h2>
           <div id="wishlistContainer"></div>
-          <button
-            type="button"
-            id="addItemBtn"
-            class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700 hover:border-red-800 hover:text-red-800 transition-colors"
-          >
-            Add Item
-          </button>
+          <button type="button" id="addItemBtn" class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700">Add Item</button>
         </section>
 
         <!-- Media Upload -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Photos & Media</h2>
-          <input type="file" id="mediaInput" accept="image/*" multiple onchange="previewMedia(event)" class="w-full" />
-          <div id="mediaPreview" class="grid grid-cols-2 gap-4"></div>
+          <input type="file" id="mediaInput" accept="image/*" multiple class="w-full" />
+          <div id="mediaPreview" class="grid grid-cols-2 gap-4 mt-2"></div>
         </section>
 
         <!-- Story -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Tell Your Story</h2>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Full Story</label>
-          <textarea name="story" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
+          <textarea name="story" rows="6" class="w-full px-4 py-3 border rounded-lg"></textarea>
         </section>
 
         <!-- Organizer Info -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Organizer Information</h2>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
-          <input type="text" name="organizerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
+          <label>Your Name *</label>
+          <input type="text" name="organizerName" required class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-          <input type="email" name="organizerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
+          <label>Email *</label>
+          <input type="email" name="organizerEmail" required class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-          <input type="tel" name="organizerPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <label>Phone</label>
+          <input type="tel" name="organizerPhone" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label class="block text-sm font-medium text-gray-700 mb-2">Relationship to Beneficiary *</label>
-          <input type="text" name="relationship" class="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
+          <label>Relationship to Beneficiary *</label>
+          <input type="text" name="relationship" required class="w-full px-4 py-3 border rounded-lg" />
         </section>
 
         <!-- PayPal Info -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">PayPal Information</h2>
-          <label class="block text-sm font-medium text-gray-700 mb-2">PayPal Email</label>
-          <input type="email" name="paypal" placeholder="your-paypal@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          <label>PayPal Email</label>
+          <input type="email" name="paypal" placeholder="your-paypal@example.com" class="w-full px-4 py-3 border rounded-lg" />
         </section>
 
         <!-- Submit -->
         <div class="flex gap-4 pt-6">
           <button type="submit" class="flex-1 bg-red-700 hover:bg-red-800 text-white font-semibold py-4 px-8 rounded-lg">Create Fundraiser</button>
-
         </div>
       </form>
     </div>
   </div>
 </div>
 
+<!-- Scripts -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-// Uncomment and fix this if you add an NGO select with id="ngoSelect"
-/*
-fetch('./website/templates/ngos.json')
-  .then(response => response.json())
-  .then(ngos => {
-    const select = document.getElementById("ngoSelect");
-    if (!select) return;
-    ngos.forEach(ngo => {
-      const option = document.createElement("option");
-      option.value = ngo;
-      option.textContent = ngo;
-      select.appendChild(option);
-    });
-  })
-  .catch(error => {
-    console.error('Error loading NGO list:', error);
-  });
-*/
+  // Initialize EmailJS with your public key
+  emailjs.init("2n-AqRl-QVwJJIdEF"); // <-- Replace with your EmailJS public key
 
-function previewMedia(event) {
-  const preview = document.getElementById('mediaPreview');
-  preview.innerHTML = '';
-  const files = event.target.files;
-  Array.from(files).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      img.className = 'w-full h-32 object-cover rounded-lg';
-      preview.appendChild(img);
+  const form = document.getElementById("fundraiserForm");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Collect wishlist items
+    const wishlistItems = [];
+    document.querySelectorAll("#wishlistContainer .wishlist-item").forEach(item => {
+      wishlistItems.push({
+        name: item.querySelector('input[name="item[]"]').value,
+        description: item.querySelector('input[name="description[]"]').value,
+        cost: item.querySelector('input[name="cost[]"]').value
+      });
+    });
+
+    // Collect media files as Base64
+    const mediaInput = document.getElementById("mediaInput");
+    const mediaFiles = [];
+
+    const sendEmail = () => {
+      const templateParams = {
+        title: form.title.value,
+        category: form.category.value,
+        goal: form.goal.value,
+        location: form.location.value,
+        beneficiary: form.beneficiary.value,
+        gender: form.gender.value,
+        race: form.race.value,
+        sexualOrientation: form.sexualOrientation.value,
+        disabilities: form.disabilities.value,
+        otherInfo: form.otherInfo.value,
+        story: form.story.value,
+        organizerName: form.organizerName.value,
+        organizerEmail: form.organizerEmail.value,
+        organizerPhone: form.organizerPhone.value,
+        relationship: form.relationship.value,
+        paypalEmail: form.paypal.value,
+        wishlistItems: wishlistItems,
+        mediaFiles: mediaFiles
+      };
+
+      // Send email using your service ID & template ID
+      emailjs.send("service_qtgowmv", "template_9vqmpl9", templateParams)
+        .then(() => {
+          alert("Fundraiser submitted! Check your email.");
+          form.reset();
+          document.getElementById("wishlistContainer").innerHTML = "";
+          document.getElementById("mediaPreview").innerHTML = "";
+        })
+        .catch(err => {
+          console.error("Email failed:", err);
+          alert("Failed to send fundraiser email. See console.");
+        });
     };
-    reader.readAsDataURL(file);
+
+    if (mediaInput.files.length > 0) {
+      const readers = Array.from(mediaInput.files).map(file => {
+        return new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onload = e => resolve(e.target.result);
+          reader.readAsDataURL(file);
+        });
+      });
+
+      Promise.all(readers).then(results => {
+        results.forEach(dataURL => mediaFiles.push(dataURL));
+        sendEmail();
+      });
+    } else {
+      sendEmail();
+    }
   });
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('wishlistContainer');
-  const addBtn = document.getElementById('addItemBtn');
+  // Wishlist functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('wishlistContainer');
+    const addBtn = document.getElementById('addItemBtn');
 
-  addBtn.addEventListener('click', () => {
-    const newItem = document.createElement('div');
-    newItem.classList.add('wishlist-item', 'mb-6', 'pb-4', 'border-b');
+    addBtn.addEventListener('click', () => {
+      const newItem = document.createElement('div');
+      newItem.classList.add('wishlist-item', 'mb-6', 'pb-4', 'border-b');
 
-    newItem.innerHTML = `
-      <input type="text" name="item[]" placeholder="Item Name" required class="w-full px-4 py-2 border rounded mb-2" />
-      <input type="text" name="description[]" placeholder="Description" class="w-full px-4 py-2 border rounded mb-2" />
-      <input type="number" name="cost[]" placeholder="Estimated Cost" min="0" class="w-full px-4 py-2 border rounded mb-2" />
-      <button type="button" class="remove-btn text-red-600 hover:text-red-800">Remove</button>
-    `;
+      newItem.innerHTML = `
+        <input type="text" name="item[]" placeholder="Item Name" required class="w-full px-4 py-2 border rounded mb-2" />
+        <input type="text" name="description[]" placeholder="Description" class="w-full px-4 py-2 border rounded mb-2" />
+        <input type="number" name="cost[]" placeholder="Estimated Cost" min="0" class="w-full px-4 py-2 border rounded mb-2" />
+        <button type="button" class="remove-btn text-red-600 hover:text-red-800">Remove</button>
+      `;
 
-    // Add remove functionality
-    newItem.querySelector('.remove-btn').addEventListener('click', () => {
-      newItem.remove();
+      newItem.querySelector('.remove-btn').addEventListener('click', () => newItem.remove());
+      container.appendChild(newItem);
     });
-
-    container.appendChild(newItem);
   });
-});
 </script>
 {% endblock %}
