@@ -10,25 +10,49 @@ from flask import send_from_directory
 from dotenv import load_dotenv
 from .models import Fundraiser
 from flask_login import login_user
-
+from PIL import Image
+import uuid
+import re
 
 views = Blueprint('views', __name__)
 
+# Allowed file extensions for profile pictures
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in current_app.config['ALLOWED_EXTENSIONS']
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def resize_image(image_path, max_size=(300, 300)):
+    """Resize image to maximum dimensions while maintaining aspect ratio"""
+    try:
+        with Image.open(image_path) as img:
+            # Convert RGBA to RGB if necessary
+            if img.mode in ('RGBA', 'LA', 'P'):
+                rgb_img = Image.new('RGB', img.size, (255, 255, 255))
+                rgb_img.paste(img, mask=img.split()[-1] if img.mode == 'RGBA' else None)
+                img = rgb_img
+            
+            img.thumbnail(max_size, Image.Resampling.LANCZOS)
+            img.save(image_path, 'JPEG', quality=85)
+        return True
+    except Exception as e:
+        print(f"Error resizing image: {e}")
+        return False
+
+def is_valid_email(email):
+    """Validate email format"""
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email) is not None
 
 @views.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
     # Set default image
     image_filename = f"{current_user.id}.jpg"
-    upload_folder = current_app.config['UPLOAD_FOLDER']
+    upload_folder = current_app.config.get('UPLOAD_FOLDER', 'static/images')
     user_image_path = os.path.join(upload_folder, image_filename)
 
     # If user hasn't uploaded a profile picture, use default
-    user_image_path = os.path.join(upload_folder, image_filename)
-
     if not os.path.exists(user_image_path):
         image_filename = 'default.jpg'
         print("Looking for file at:", user_image_path)
@@ -36,36 +60,92 @@ def profile():
     profile_image = url_for('static', filename=f'images/{image_filename}')
 
     if request.method == 'POST':
-        file = request.files.get('profile-pic')
-        if file and allowed_file(file.filename):
-            os.makedirs(upload_folder, exist_ok=True)  # create folder if missing
-            filename = secure_filename(f"{current_user.id}.jpg")
-            file.save(os.path.join(upload_folder, filename))
+        # Handle profile picture upload
+        if 'profile-pic' in request.files:
+            file = request.files['profile-pic']
+            
+            if file.filename == '':
+                flash('No file selected.', 'danger')
+                return redirect(url_for('views.profile'))
+            
+            if not allowed_file(file.filename):
+                flash('Invalid file type. Please upload a PNG, JPG, JPEG, GIF, or WebP image.', 'danger')
+                return redirect(url_for('views.profile'))
+            
+            try:
+                # Create upload folder if it doesn't exist
+                os.makedirs(upload_folder, exist_ok=True)
+                
+                # Generate unique filename but keep user ID for consistency
+                filename = secure_filename(f"{current_user.id}.jpg")
+                file_path = os.path.join(upload_folder, filename)
+                
+                # Remove old profile picture if it exists and isn't default
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                
+                # Save the file
+                file.save(file_path)
+                
+                # Resize the image
+                if not resize_image(file_path):
+                    os.remove(file_path)  # Clean up failed file
+                    flash('Error processing image. Please try again.', 'danger')
+                    return redirect(url_for('views.profile'))
+                
+                flash('Profile picture updated successfully!', 'success')
+                
+            except Exception as e:
+                flash(f'Error uploading file: {str(e)}', 'danger')
+            
             return redirect(url_for('views.profile'))
 
     return render_template('profile.html', profile_image=profile_image)
 
-@views.route('/update-password', methods=['POST'])
+@views.route('/update_password', methods=['POST'])
 @login_required
 def update_password():
-    current_password = request.form['current_password']
-    new_password = request.form['new_password']
-    confirm_password = request.form['confirm_password']
+    current_password = request.form.get('current_password')
+    new_password = request.form.get('new_password')
+    confirm_password = request.form.get('confirm_password')
 
-    if not check_password_hash(current_user.password, current_password):
-        flash("Current password is incorrect.", "danger")
+    # Validate input
+    if not all([current_password, new_password, confirm_password]):
+        flash('All password fields are required.', 'danger')
         return redirect(url_for('views.profile'))
 
+    # Check if new passwords match
     if new_password != confirm_password:
-        flash("New passwords do not match.", "danger")
+        flash('New passwords do not match.', 'danger')
         return redirect(url_for('views.profile'))
 
-    current_user.password = generate_password_hash(new_password)
-    db.session.commit()
-    flash("Password updated successfully.", "success")
+    # Verify current password
+    if not check_password_hash(current_user.password, current_password):
+        flash('Current password is incorrect.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    # Check if new password is different from current
+    if check_password_hash(current_user.password, new_password):
+        flash('New password must be different from current password.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    # Check password is not empty
+    if len(new_password.strip()) == 0:
+        flash('Password cannot be empty.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    try:
+        # Update password
+        current_user.password = generate_password_hash(new_password)
+        db.session.commit()
+        flash('Password updated successfully!', 'success')
+        
+    except Exception as e:
+        flash(f'Error updating password: {str(e)}', 'danger')
+
     return redirect(url_for('views.profile'))
 
-@views.route('/update-email', methods=['POST'])
+@views.route('/update_email', methods=['POST'])
 @login_required
 def update_email():
     print("Update email form submitted")
@@ -77,19 +157,46 @@ def update_email():
     print("Entered current_email:", current_email)
     print("Logged-in user's email:", current_user.email)
 
-    if current_user.email != current_email:
-        flash("Current email is incorrect.", "danger")
+    # Validate input
+    if not all([current_email, new_email]):
+        flash('Both email fields are required.', 'danger')
         return redirect(url_for('views.profile'))
 
-    current_user.email = new_email
-    db.session.commit()
-    flash("Email updated successfully!", "success")
+    # Validate email format
+    if not is_valid_email(new_email):
+        flash('Please enter a valid email address.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    # Verify current email
+    if current_user.email.lower() != current_email.lower():
+        flash('Current email is incorrect.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    # Check if new email is different
+    if current_user.email.lower() == new_email.lower():
+        flash('New email must be different from current email.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    # Check if new email already exists
+    existing_user = User.query.filter_by(email=new_email).first()
+    if existing_user and existing_user.id != current_user.id:
+        flash('This email address is already in use.', 'danger')
+        return redirect(url_for('views.profile'))
+
+    try:
+        # Update email
+        current_user.email = new_email
+        db.session.commit()
+        flash('Email updated successfully!', 'success')
+        
+    except Exception as e:
+        flash(f'Error updating email: {str(e)}', 'danger')
+
     return redirect(url_for('views.profile'))
 
 @views.route('/')
 def home():
     return render_template("home.html")
-
 
 @views.route('/donate')
 def donate():
@@ -104,7 +211,6 @@ def updates():
 def form():
     return render_template('form.html')
     
-
 @views.route('/error')
 def error():
     return render_template('error.html')
@@ -142,8 +248,6 @@ def signup():
             return redirect(url_for('views.home'))
 
     return render_template('sign_up.html')
-
-
 
 @views.route('/lgbtqiadiscrimination')
 def lgbtqiadiscrimination():
