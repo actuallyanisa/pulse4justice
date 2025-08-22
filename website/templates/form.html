@@ -13,12 +13,15 @@
           <svg class="lucide lucide-heart w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"><use href="#heart" /></svg>
           Create Your Fundraiser
         </h1>
-        <p class="text-red-100 mt-2">Share your story and fundraising goals with us! We will review your submission, get your story up, and partner your fundraiser with a NGO within 5 business days. Look out for communication from us and feel free to reach out at rohini@pulseforjustice.org if you have any questions.</p>
+        <p class="text-red-100 mt-2">
+          Share your story and fundraising goals with us! We will review your submission, get your story up, and partner your fundraiser with an NGO within 5 business days. 
+          Look out for communication from us and feel free to reach out at rohini@pulseforjustice.org if you have any questions.
+        </p>
       </div>
 
       <!-- Form -->
-      <form id="fundraiserForm" class="space-y-10 p-8">
-
+      <form id="fundraiserForm" method="POST" class="space-y-10 p-8">
+        
         <!-- Basic Info Section -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Basic Information</h2>
@@ -43,7 +46,7 @@
           <input type="number" name="goal" min="0" required placeholder="e.g., 5000" class="w-full px-4 py-3 border rounded-lg" />
 
           <label>Location *</label>
-          <input type="text" name="location" placeholder="City, State, Country" class="w-full px-4 py-3 border rounded-lg" />
+          <input type="text" name="location" required placeholder="City, State, Country" class="w-full px-4 py-3 border rounded-lg" />
 
           <label>Beneficiary (if not yourself)</label>
           <input type="text" name="beneficiary" placeholder="e.g., Jane Doe" class="w-full px-4 py-3 border rounded-lg" />
@@ -72,7 +75,7 @@
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">Wishlist</h2>
           <div id="wishlistContainer"></div>
-          <button type="button" id="addItemBtn" class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700">Add Item</button>
+          <button type="button" id="addItemBtn" class="w-full border-2 border-dashed border-red-700 rounded-lg p-4 text-red-700">+ Add Item</button>
         </section>
 
         <!-- Media Upload -->
@@ -100,15 +103,15 @@
           <label>Phone</label>
           <input type="tel" name="organizerPhone" class="w-full px-4 py-3 border rounded-lg" />
 
-          <label>Relationship to Beneficiary (if not yourself) </label>
-          <input type="text" name="relationship" required class="w-full px-4 py-3 border rounded-lg" />
+          <label>Relationship to Beneficiary (if not yourself)</label>
+          <input type="text" name="relationship" class="w-full px-4 py-3 border rounded-lg" />
         </section>
 
         <!-- PayPal Info -->
         <section class="space-y-6">
           <h2 class="text-2xl font-semibold text-gray-800">PayPal Information</h2>
           <label>PayPal Email *</label>
-          <input type="email" name="paypal" placeholder="your-paypal@example.com" class="w-full px-4 py-3 border rounded-lg" />
+          <input type="email" name="paypal" required placeholder="your-paypal@example.com" class="w-full px-4 py-3 border rounded-lg" />
         </section>
 
         <!-- Submit -->
@@ -121,10 +124,11 @@
 </div>
 
 <!-- Scripts -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // Initialize EmailJS with your public key
-  emailjs.init("2n-AqRl-QVwJJIdEF"); // <-- Replace with your EmailJS public key
+  (function(){
+    emailjs.init("2n-AqRl-QVwJJIdEF"); // <-- replace with your EmailJS public key
+  })();
 
   const form = document.getElementById("fundraiserForm");
 
@@ -167,17 +171,16 @@
         mediaFiles: mediaFiles
       };
 
-      // Send email using your service ID & template ID
       emailjs.send("service_qtgowmv", "template_9vqmpl9", templateParams)
         .then(() => {
-          alert("Fundraiser submitted! Check your email.");
+          alert("✅ Fundraiser submitted! Check your email.");
           form.reset();
           document.getElementById("wishlistContainer").innerHTML = "";
           document.getElementById("mediaPreview").innerHTML = "";
         })
         .catch(err => {
           console.error("Email failed:", err);
-          alert("Failed to send fundraiser email. See console.");
+          alert("❌ Failed to send fundraiser email. See console for details.");
         });
     };
 
@@ -191,7 +194,14 @@
       });
 
       Promise.all(readers).then(results => {
-        results.forEach(dataURL => mediaFiles.push(dataURL));
+        results.forEach(dataURL => {
+          mediaFiles.push(dataURL);
+          // Add preview
+          const img = document.createElement("img");
+          img.src = dataURL;
+          img.className = "rounded-lg shadow-md";
+          document.getElementById("mediaPreview").appendChild(img);
+        });
         sendEmail();
       });
     } else {
@@ -214,7 +224,6 @@
         <input type="number" name="cost[]" placeholder="Estimated Cost" min="0" class="w-full px-4 py-2 border rounded mb-2" />
         <button type="button" class="remove-btn text-red-600 hover:text-red-800">Remove</button>
       `;
-
       newItem.querySelector('.remove-btn').addEventListener('click', () => newItem.remove());
       container.appendChild(newItem);
     });
