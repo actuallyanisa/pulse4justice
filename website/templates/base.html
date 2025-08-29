@@ -76,16 +76,35 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-  <script>
-    setTimeout(() => {
-      const alert = document.querySelector('.flash-message');
-      if (alert) {
-        alert.classList.remove('show');
-        alert.classList.add('fade');
-        setTimeout(() => alert.remove(), 500);
-      }
-    }, 4000);
-  </script>
+<style>
+  .flash-message {
+    background-color: #333; /* dark gray */
+    color: #fff;            /* white text */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    opacity: 1;
+    transition: opacity 5s;
+    z-index: 50;
+  }
+  .flash-message.fade {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  setTimeout(() => {
+    const alert = document.querySelector('.flash-message');
+    if (alert) {
+      alert.classList.remove('show');
+      alert.classList.add('fade');
+      setTimeout(() => alert.remove(), 500);
+    }
+  }, 2000); // changed from 4000 to 2000ms (2 seconds)
+</script>
 
 </body>
 </html>
