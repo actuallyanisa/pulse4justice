@@ -1195,3 +1195,12 @@ textarea {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.sharetext{
+  padding-left: 450px;
+  padding-top: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-size:40;
+  font-weight: bold;
+  color: rgb(80, 78, 78);
+}
