@@ -2,13 +2,17 @@
 
 /* Navbar itself will expand to fit its content */
 nav.navbar {
-  display: flex;
-  align-items: center;
-  background-color: #2618bc;
-  font-size: large;
-  min-width: max-content;
-  width: 100%;
-  position: fixed;
+  display: flex !important;
+  align-items: center !important;
+  background-color: #2618bc !important;
+  font-size: large !important;
+  font-family: "League Spartan" !important;
+  width: 100vw !important;
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 80px !important;
+  top: 0 !important;
 }
 
 /* Container that enables horizontal scroll if needed */
