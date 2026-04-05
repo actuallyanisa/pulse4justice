@@ -19,6 +19,10 @@ views = Blueprint('views', __name__)
 # Allowed file extensions for profile pictures
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 
+@views.route('/', methods=['GET', 'POST'])
+def home():
+    return render_template("home.html", user=current_user)
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -193,10 +197,6 @@ def update_email():
         flash(f'Error updating email: {str(e)}', 'danger')
 
     return redirect(url_for('views.profile'))
-
-@views.route('/')
-def home():
-    return render_template("home.html")
 
 @views.route('/donate')
 def donate():
