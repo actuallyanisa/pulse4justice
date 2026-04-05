@@ -36,13 +36,10 @@ def create_app():
     mail.init_app(app)
 
     from .views import views
-    from .auth import auth  # Your auth blueprint, if exists
 
     app.register_blueprint(views)
-    app.register_blueprint(auth)
 
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
     from .models import User  # your User model

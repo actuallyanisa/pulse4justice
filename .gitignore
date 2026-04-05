@@ -1,3 +1,11 @@
 .vscode
 website/__pycache__
 website/database.db
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+.DS_Store
+instance/

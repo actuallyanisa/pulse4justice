@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, jsonify, request, redirect, url_for, current_app, flash, render_template
+from flask import Blueprint, render_template, jsonify, request, redirect, url_for, current_app, flash
 from flask_login import login_required, current_user
 import json
 from werkzeug.utils import secure_filename
@@ -9,7 +9,6 @@ from . import db
 from flask import send_from_directory
 from dotenv import load_dotenv
 from .models import Fundraiser
-from flask_login import login_user
 from PIL import Image
 import uuid
 import re
@@ -203,55 +202,20 @@ def donate():
     return render_template('donate.html')
 
 @views.route('/aboutus')
-def updates():
+def aboutus():
     return render_template('aboutus.html')
 
-@views.route('/form')
-@login_required
-def form():
-    return render_template('form.html')
-    
-@views.route('/error')
-def error():
-    return render_template('error.html')
+@views.route('/events')
+def events():
+    return render_template('events.html')
 
-@views.route('/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        email = request.form.get('email')
-        first_name = request.form.get('firstName')
-        password1 = request.form.get('password1')
-        password2 = request.form.get('password2')
-
-        # check if user already exists
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user:
-            flash('Email is already registered.', category='error')
-        elif password1 != password2:
-            flash('Passwords do not match.', category='error')
-        elif len(password1) < 6:
-            flash('Password must be at least 6 characters.', category='error')
-        else:
-            # create new user
-            new_user = User(
-                email=email,
-                first_name=first_name,
-                password=generate_password_hash(password1, method='pbkdf2:sha256')
-            )
-            db.session.add(new_user)
-            db.session.commit()
-
-            # log the user in right away
-            login_user(new_user, remember=True)
-
-            flash('Account created and logged in!', category='success')
-            return redirect(url_for('views.home'))
-
-    return render_template('sign_up.html')
+@views.route('/resources')
+def resources():
+    return render_template('resources.html')
 
 @views.route('/lgbtqiadiscrimination')
 def lgbtqiadiscrimination():
-    return render_template('lgbtqiadiscrimination.html')
+    return render_template('topic.html', title='LGBTQIA+ Discrimination')
 
 @views.route('/ableism')
 def ableism():
@@ -259,19 +223,19 @@ def ableism():
 
 @views.route('/religiousdiscrimination')
 def religiousdiscrimination():
-    return render_template('religiousdiscrimination.html')
+    return render_template('topic.html', title='Religious Discrimination')
 
 @views.route('/classism')
 def classism():
-    return render_template('classism.html')
+    return render_template('topic.html', title='Classism')
 
 @views.route('/sexism')
 def sexism():
-    return render_template('sexism.html')
+    return render_template('topic.html', title='Sexism')
 
 @views.route('/racism')
 def racism():
-    return render_template('racism.html')
+    return render_template('topic.html', title='Racism')
 
 @views.route('/mentalhealthstigmatization')
 def mentalhealthstigmatization():
@@ -279,17 +243,24 @@ def mentalhealthstigmatization():
 
 @views.route('/linguisticdiscrimination')
 def linguisticdiscrimination():
-    return render_template('linguisticdiscrimination.html')
+    return render_template('topic.html', title='Linguistic Discrimination')
 
 @views.route('/ageism')
 def ageism():
     return render_template('ageism.html')
 
+@views.route('/form')
+def form():
+    return render_template('form.html')
+    
+@views.route('/error')
+def error():
+    return render_template('error.html')
+
 from flask_mail import Message
 from . import mail
 
 @views.route('/submit', methods=['POST'])
-@login_required  # optionally require login if you want
 def submit():
     data = request.form.to_dict(flat=False)
 
