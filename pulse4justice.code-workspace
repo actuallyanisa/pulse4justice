@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "pulse4justice",
+			"path": "."
+		}
+	],
+	"settings": {
+		"python-envs.defaultEnvManager": "ms-python.python:system"
+	}
+}
