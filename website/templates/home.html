@@ -13,13 +13,17 @@
       .container {
         width: 90%;
         max-width: 1200px;
-        margin: auto;
+        margin: 0;
+        line-height: 1;
+        padding: 0;
       }
 
       body {
         margin: 0;
         display: flex;
         justify-content: center;
+        line-height: 1;
+        padding: 0;
       }
 
       .hero-image-wrapper {
@@ -108,7 +112,74 @@
       display: block;
       margin: 0 auto;
     }
-    
+/* STATS ------------------------------------*/  
+  .stats-full-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;              /* ✅ correct */
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 250px;
+    margin: 0 !important;
+    border: none;
+    gap: 0; /* remove spacing */
+    padding: 0;
+  }
+
+  .stats-text1 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 125px;
+    padding-left: 140px;
+  }
+    .stats-text2 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 125px;
+    padding-left: 210px;
+  }
+    .stats-text3 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 125px;
+    padding-left: 200px;
+  }
+
+  /* STATS WORDS ------------------------------------*/  
+  .new-full-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;              /* ✅ correct */
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 50px;
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    gap: 0; /* remove spacing */
+  }
+
+  .stats-desc1 {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 25px;
+    padding-left: 175px;
+    margin-top: -60px;
+  }
+    .stats-desc2 {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 25px;
+    padding-left: 723px;
+    margin-top: -40px;
+  }
+    .stats-desc3 {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 25px;
+    padding-left: 1120px;
+    margin-top: -42px;
+  }
 /* FOOTER ------------------------------------*/
 
   .footer-bar {
@@ -180,8 +251,8 @@
 
 </style>
 /* TOP PART WITH BUTTON ------------------------------------*/
-    <div class="horizontal-scroll-container">
-      <!-- HERO IMAGE SECTION -->
+  <div class="horizontal-scroll-container">
+    <!-- HERO IMAGE SECTION -->
       <div class="hero-image-wrapper">
         <img src="{{ url_for('static', filename='images/hero.png') }}" class="heroimg" />
         <div class="hero-overlay-gradient">
@@ -192,8 +263,36 @@
           </div>
         </div>
       </div>
-<style>
+    </div>
+    
+<!-- ===== Recognition Section ===== -->
+  <div class="stats-full-bg" id="statsSection">
+    <div class="statssection"></div>
+    <div class="stats-text1">
+      <p>500+</p>
+    </div>
+    <div class="stats-text2">
+      <p>20+</p>
+    </div>
+    <div class="stats-text3">
+      <p>4</p>
+    </div>
+</div>
 
+  
+    <div class="stats-desc1">
+      <p>Students Empowered</p>
+    </div>
+    <div class="stats-desc2">
+      <p>In-Person Events</p>
+    </div>
+    <div class="stats-desc3">
+      <p>Online Courses</p>
+    </div>
+
+  <div class="new-full-bg" id="newSection"></div>
+
+  <style>
 /* FOOTER ------------------------------------*/ 
   </style>
       <div class="footer-bar">
