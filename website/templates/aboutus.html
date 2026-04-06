@@ -28,6 +28,7 @@
     align-items: center;
     gap: 3rem;
     padding: 3rem 0;
+    padding-top: -50px !important;
   }
 
   .about-img{
@@ -50,6 +51,7 @@
     font-size: 3rem;
     color: #650000;
     margin-bottom: 1rem;
+    padding-top: 60px !important;
   }
 
   .mission-text p {
@@ -87,27 +89,11 @@
     opacity: 1;
   }
 
-  .founders-text {
-    max-width: 40%;
-  }
-
-  .founders-text h2 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-  }
-
-  .founders-text p {
-    font-size: 1.2rem;
-    line-height: 1.7;
-    white-space: normal;
-  }
-
   .founder-images {
+    margin-left: 70px;
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     justify-content: center;
-    align-items: flex-start;
   }
 
   .founder {
@@ -129,6 +115,7 @@
     border-radius: 0;
     background-color: transparent;
     border: none;
+        align-items: center;
   }
 
   .founder .name {
@@ -142,7 +129,7 @@
     font-weight: 400;
     color: #f2bcbc;
   }
-
+  
   /* ===== Our Story Section ===== */
   .our-story-section {
     background-color: white;
@@ -163,8 +150,29 @@
     white-space: normal;
   }
 
+/* ===== Recognition Section ===== */
+  .recognition-full-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    min-height: 500px;
+    position: relative;
+  }
+
+  .awards-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 395px;
+    margin-right: 1100px;
+  }
+
   /* ===== Footer Bar ===== */
   .footer-bar {
+    margin-top: 50px;
     background-color: #bb1e29;
     color: white;
     padding: 3rem 5vw 2rem 5vw;
@@ -227,7 +235,12 @@
       <h2>Our Mission</h2>
       <p>
         
-A donation based platform, Pulse for Justice seeks to create equal access in the healthcare world. Through individual’s personal stories and local grassroots dedicated to fighting each sector of discrimination, this platform elevates voices throughout California. Elevating under-represented voices with a passionate community, we hope to create a future of elevated voices.
+At Future Speakers Initiative, we believe that communication is power, and every student deserves the tools to use it. In a world where opportunities are often shaped by access and privilege, strong speaking and argumentation skills should not be reserved for the few.
+
+​
+
+Founded by Yashnil Mohanty, FSI was created to bridge the gap in speech and debate education by offering accessible, high-quality programs that don’t just teach students how to speak, but how to lead. What sets us apart is our focus on advocacy: empowering middle schoolers to find their voice, speak out on the issues they care about, and become changemakers in their communities. We don’t just build confident speakers. We aim to nurture the next generation of civic leaders.
+
 
       </p>
     </div>
@@ -238,39 +251,54 @@ A donation based platform, Pulse for Justice seeks to create equal access in the
 <!-- ===== Founders Section ===== -->
 <div class="founders-full-bg" id="foundersSection">
   <div class="founders-section">
-    <div class="founders-text">
-      <h2>Meet the Founders</h2>
-      <p>
-        Nicknamed the Powerpuff Trio, three highschoolers have come together to inspire the breaking of generational discrimination. As women of color and allies within the LGBTQIA+ community, our lived experiences and passion for engineering and medicine fuel our deep commitment to creating a more equitable future. 
-      </p>
-    </div>
     <div class="founder-images">
       <div class="founder">
-        <img src="{{ url_for('static', filename='images/rohini.jpg') }}" alt="Rohini Vedam" />
-        <div class="name">Rohini Vedam</div>
-        <div class="role">Founder and Developer</div>
-      </div>
-      <div class="founder">
-        <img src="{{ url_for('static', filename='images/ananya.JPG') }}" alt="Ananya Vinesh">
-        <div class="name">Ananya Vinesh</div>
-        <div class="role">Founder and Outreach</div>
-      </div>
-      <div class="founder">
-        <img src="{{ url_for('static', filename='images/AnisaChandra.jpg') }}" alt="Anisa Chandra" />
+        <img src="{{ url_for('static', filename='images/rohini.jpg') }}" alt="Anisa Chandra" />
         <div class="name">Anisa Chandra</div>
-        <div class="role">Founder and Designer</div>
+        <div class="role">President</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/ananya.JPG') }}" alt="Avni Kokal">
+        <div class="name">Avni Kokal</div>
+        <div class="role">Vice President</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/AnisaChandra.jpg') }}" alt="Nia Nguyen" />
+        <div class="name">Nia Nguyen</div>
+        <div class="role">Outreach Coordinator</div>
+      </div>
+            <div class="founder">
+        <img src="{{ url_for('static', filename='images/AnisaChandra.jpg') }}" alt="Alyssa Lee" />
+        <div class="name">Alyssa Lee</div>
+        <div class="role">Web Developer</div>
+      </div>
+            <div class="founder">
+        <img src="{{ url_for('static', filename='images/AnisaChandra.jpg') }}" alt="Szimona Kokeny" />
+        <div class="name">Szimona Kokeny</div>
+        <div class="role">Curriculum Developer</div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- ===== Our Story Section ===== -->
 <div class="section-wrapper">
   <div class="our-story-section">
     <h2>Our Story</h2>
     <p>
-      Pulse for Justice was founded in 2025 on the vision of healthcare without discrimination. Born from a single hope, we have built this platform on that vision while connecting with many organizations who share our aspirations. Today, we help people accelerate their experiences to aid thousands whose stories align. 
+      Competing for Westmont High School, we saw firsthand how disparities in funding and resources impact students’ ability to compete on equal footing. Many middle schoolers in underfunded schools never get the chance to experience debate, practice public speaking, or sharpen their critical thinking, skills that are crucial for academic success, career advancement, and self-advocacy. This inequality creates a cycle where students from wealthier backgrounds become more articulate and confident, while students from disadvantaged communities struggle to find their voice.
+
+
     </p>
+  </div>
+</div>
+
+<!-- ===== Recognition Section ===== -->
+<div class="recognition-full-bg" id="recognitionSection">
+  <div class="recognitionsection"></div>
+  <div class="awards-text">
+    <h2>Our Awards</h2>
   </div>
 </div>
 
