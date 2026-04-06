@@ -8,6 +8,7 @@
 
 <body>
   {% block content %}
+  /* TOP PART WITH BUTTON ------------------------------------*/
     <style>
       .container {
         width: 90%;
@@ -103,50 +104,13 @@
         display: inline-block;
       }
 
-      .explore {
-        text-align: center;
-        margin-top: 0.5rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-    
-      .square {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 30px;
-      padding: 70px;
-    }
-
-    .item {
-      background-color: #f0f0f0;
-      overflow: hidden;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      aspect-ratio: 4 / 3;
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
-    }
-
-    .item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .bannerimg {
-      width:100%;
-    }
-
     .horizontal-scroll-container {
       display: block;
       margin: 0 auto;
     }
     
+/* FOOTER ------------------------------------*/
+
   .footer-bar {
     margin-top: 100px;
     background-color: #bb1e29;
@@ -215,30 +179,23 @@
     
 
 </style>
-
+/* TOP PART WITH BUTTON ------------------------------------*/
     <div class="horizontal-scroll-container">
       <!-- HERO IMAGE SECTION -->
       <div class="hero-image-wrapper">
         <img src="{{ url_for('static', filename='images/hero.png') }}" class="heroimg" />
         <div class="hero-overlay-gradient">
           <div class="hero-text">
-            <h1>One button. One <br> thousand can be helped. </h1>
-            <p>Every story is a spark that fuels real change. One button connects individual struggles to trusted <br> organizations, driving support not just for one person but for entire communities facing similar challenges. Together, a single action becomes a movement that transforms lives.</p>
-            <a href="/donate">REGISTER FOR SUMMER 2026</a>
+            <h1>Future Speakers Initiative</h1>
+            <p>With Future Speakers Initiative, we're empowering the next generation of civic leaders through accessible speech and debate education. We provide every child with the opportunity to grow as an advocate and learn the communication skills they'll need to know for life, completely free of cost.</p>
+            <a href="/events">REGISTER FOR SUMMER 2026</a>
           </div>
         </div>
       </div>
-      <div class="dividedbycause">
-        <p>
-          <span style="color: black;">With partnerships across California <br> Focused on the fight,</span>
-          <span style="color: red;">divided by the cause</span>
-        </p>
-      </div>
-
 <style>
-  
-  </style>
 
+/* FOOTER ------------------------------------*/ 
+  </style>
       <div class="footer-bar">
         <div class="footer-left" style="align-self: flex-end;">
         </div>
