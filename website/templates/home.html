@@ -112,6 +112,47 @@
       display: block;
       margin: 0 auto;
     }
+
+  /* ===== Mission Section2 ===== */
+  .mission-section1 {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 50px !important;
+    padding-top: -80px !important;
+    padding-right: 50px;
+  }
+
+  .about2-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 50px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+
+  .mission-text1 {
+    flex-grow: 1;
+    color: #000;
+  }
+
+  .mission-text1 h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .mission-text1 p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
 /* STATS ------------------------------------*/  
   .stats-full-bg {
     background-color: #5c0015;
@@ -180,6 +221,81 @@
     padding-left: 1120px;
     margin-top: -42px;
   }
+
+/* ===== What We Offer Section ===== */
+  .whatweoffer-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 50px !important;
+    padding-top: 50px;
+    margin-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    max-height: 200px
+  }
+
+  .about-img{
+    flex-shrink: 0;
+    width: 300px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding-top: 60px;
+    margin-right: 10px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .about1-img{
+    flex-shrink: 0;
+    width: 300px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding-top: 60px;
+    margin-top: 60px;
+    margin-right: 10px;
+    margin-bottom: 60px;
+  }
+
+  .whatweoffer-text {
+    flex-grow: 1;
+    color: #000;
+  }
+
+  .whatweoffer-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 10px;
+    margin-top: 40px;
+  }
+
+  .whatweoffer-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  .whatweoffer-button a {
+    padding: 0.6rem 1.2rem;
+    background-color: #bc1823;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display:block;
+    max-width: 150px;
+    margin-top: 20px;
+    margin-left: 230px;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+
 /* FOOTER ------------------------------------*/
 
   .footer-bar {
@@ -254,7 +370,7 @@
   <div class="horizontal-scroll-container">
     <!-- HERO IMAGE SECTION -->
       <div class="hero-image-wrapper">
-        <img src="{{ url_for('static', filename='images/hero.png') }}" class="heroimg" />
+        <img src="{{ url_for('static', filename='images/futurespeakers7.avif') }}" class="heroimg" />
         <div class="hero-overlay-gradient">
           <div class="hero-text">
             <h1>Future Speakers Initiative</h1>
@@ -264,7 +380,18 @@
         </div>
       </div>
     </div>
-    
+<!-- ===== Mission Section2 ===== -->
+    <div class="section-wrapper">
+  <div class="mission-section1">
+    <img src="{{ url_for('static', filename='images/futurespeakers1.avif') }}" class="about2-img">
+    <div class="mission-text1">
+      <h2>Our Mission</h2>
+      <p> Our mission is to empower middle school students with essential communication, critical thinking, and public speaking skills through accessible speech and debate resources and training. We are committed to advocating for educational equity by bringing high-quality speech and debate programs to communities that lack access in their school curriculum. We envision a future where every student, regardless of background, has the tools to speak up, lead, and drive change in their communities.
+      </p>
+    </div>
+  </div>
+  </div>
+
 <!-- ===== Recognition Section ===== -->
   <div class="stats-full-bg" id="statsSection">
     <div class="statssection"></div>
@@ -279,7 +406,6 @@
     </div>
 </div>
 
-  
     <div class="stats-desc1">
       <p>Students Empowered</p>
     </div>
@@ -289,8 +415,23 @@
     <div class="stats-desc3">
       <p>Online Courses</p>
     </div>
+    <div class="new-full-bg" id="newSection"></div>
 
-  <div class="new-full-bg" id="newSection"></div>
+<!-- ===== What We Offer ===== -->
+  <div class="section-wrapper">
+  <div class="whatweoffer-section">
+    <div class="whatweoffer-text">
+      <h2>What We Offer</h2>
+      <p> Future Speakers Initiative provides dynamic in-person and online programs that equip students with the public speaking and leadership skills needed to inspire change and close the opportunity gap in speech and debate education.
+      </p>
+      <div class="whatweoffer-button">
+        <a href="/events">LEARN MORE</a>
+    </div>
+  </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers2.avif') }}" class="about-img">
+    <img src="{{ url_for('static', filename='images/futurespeakers3.avif') }}" class="about1-img">
+  </div>
+</div>
 
   <style>
 /* FOOTER ------------------------------------*/ 
