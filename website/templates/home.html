@@ -154,74 +154,39 @@
   }
 
 /* STATS ------------------------------------*/  
-  .stats-full-bg {
-    background-color: #5c0015;
-    color: white;
-    display: flex;              /* ✅ correct */
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 250px;
-    margin: 0 !important;
-    border: none;
-    gap: 0; /* remove spacing */
-    padding: 0;
+.stats-full-bg {
+  background-color: #5c0015;
+  color: white;
+  display: flex;
+  justify-content: space-around; /* evenly spaced */
+  align-items: center;
+  flex-wrap: wrap; /* allows stacking on mobile */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 80px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.stat-item p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .stat-item {
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  .stats-text1 {
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 125px;
-    padding-left: 140px;
+  .stat-item h2 {
+    font-size: 60px;
   }
-    .stats-text2 {
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 125px;
-    padding-left: 210px;
-  }
-    .stats-text3 {
-    color: #ffffff;
-    font-weight: 900;
-    font-size: 125px;
-    padding-left: 200px;
-  }
-
-  /* STATS WORDS ------------------------------------*/  
-  .new-full-bg {
-    background-color: #5c0015;
-    color: white;
-    display: flex;              /* ✅ correct */
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 50px;
-    margin: 0 !important;
-    border: none !important;
-    padding: 0 !important;
-    gap: 0; /* remove spacing */
-  }
-
-  .stats-desc1 {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 25px;
-    padding-left: 175px;
-    margin-top: -60px;
-  }
-    .stats-desc2 {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 25px;
-    padding-left: 723px;
-    margin-top: -40px;
-  }
-    .stats-desc3 {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 25px;
-    padding-left: 1120px;
-    margin-top: -42px;
-  }
-
+}
 /* ===== What We Offer Section ===== */
   .whatweoffer-section {
     display: flex;
@@ -393,29 +358,22 @@
   </div>
 
 <!-- ===== Stats Section ===== -->
-  <div class="stats-full-bg" id="statsSection">
-    <div class="statssection"></div>
-    <div class="stats-text1">
-      <p>500+</p>
-    </div>
-    <div class="stats-text2">
-      <p>20+</p>
-    </div>
-    <div class="stats-text3">
-      <p>4</p>
-    </div>
-</div>
+<div class="stats-full-bg">
+  <div class="stat-item">
+    <h2>500+</h2>
+    <p>Students Empowered</p>
+  </div>
 
-    <div class="stats-desc1">
-      <p>Students Empowered</p>
-    </div>
-    <div class="stats-desc2">
-      <p>In-Person Events</p>
-    </div>
-    <div class="stats-desc3">
-      <p>Online Courses</p>
-    </div>
-    <div class="new-full-bg" id="newSection"></div>
+  <div class="stat-item">
+    <h2>20+</h2>
+    <p>In-Person Events</p>
+  </div>
+
+  <div class="stat-item">
+    <h2>4</h2>
+    <p>Online Courses</p>
+  </div>
+</div>
 
 <!-- ===== What We Offer ===== -->
   <div class="section-wrapper">
