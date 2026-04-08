@@ -2,6 +2,8 @@
 import os
 from website import create_app
 app = create_app()
+from main import app
+application = app
 
 # only if we run the main.py file will this line be executed. this runs the web server.
 
