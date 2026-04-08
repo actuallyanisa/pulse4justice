@@ -11,7 +11,66 @@
   {% block content %}
 
   </style>
+  <!-- ===== Our Classes Section ===== -->
+  <div class="section-wrapper">
+    <div class="ourclasses-section">
+      <div class="ourclasses-text">
+        <h2>Online Bootcamps (SUMMER 2026)</h2>
+        <p>  
+          Our immersive, free, hands-on bootcamps are designed to give elementary and middle school students the tools they need to think critically, speak confidently, and engage in meaningful discussions. Through interactive activities, hands-on coaching, and real-world practice, students will gain essential skills in public speaking and argumentation that will help them get ready for higher-level competition and benefit them for life. 
+        </p>
+        <h1> ALL BOOTCAMPS ARE COMPLETELY FREE. </h1>
+        <div class="linktree-button">
+          <a href="/events">SIGN UP FOR ALL CLASSES HERE</a>
+        </div>
+      </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers3.avif') }}" class="about3-img">
+  </div>
 
+<!-- ===== Advocacy Section ===== -->
+  <div class="advocacy-bg" id="advocacysection">
+    <div class="advocacy-section">
+        <img src="{{ url_for('static', filename='images/futurespeakers7.avif') }}" class="about7-img">
+        <div class="advocacy-text">
+          <h2>Advocacy and Leadership Through Speaking </h2>
+          <p> This six-week bootcamp is designed to empower students in grades 4–8 to become thoughtful advocates and emerging leaders through the power of public speaking. Students will explore real-world issues, develop persuasive messages, and build leadership skills centered around civic engagement and social impact. Through speeches, simulations, and collaborative projects, students will learn how to use their voice to inform, inspire, and advocate for change—culminating in a final advocacy speech on a topic they care about.
+ </p>
+      </div>
+    </div>
+</div>
+
+<!-- ===== Speech Classes Section ===== -->
+  <div class="section-wrapper">
+    <div class="speech-section">
+      <div class="speech-text">
+        <h2>Public Speaking and Presentation</h2>
+        <p> This six-week bootcamp is designed to equip students with essential public speaking and presentation skills in a fun, engaging, and supportive environment. From building confidence to mastering delivery, students will learn to express themselves clearly, structure their thoughts effectively, and present with poise. The program concludes with a final showcase where students deliver a speech they’ve developed and refined throughout the course. </p>
+    </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers3.avif') }}" class="about3-img">
+  </div>
+
+<!-- ===== Speech + Debate Section ===== -->
+  <div class="speechanddebate-bg" id="speechanddebatesection">
+    <div class="speechanddebate-section">
+        <img src="{{ url_for('static', filename='images/futurespeakers7.avif') }}" class="about7-img">
+        <div class="speechanddebate-text">
+          <h2>Critical Thinking and Argumentation </h2>
+          <p> This six-week bootcamp empowers students with the tools to think critically, speak persuasively, and argue effectively through collaborative and engaging activities. Designed for students in grades 4–8, the course introduces core argumentation skills through speaking drills, structured discussions, and mini-debates. With a focus on hands-on learning and real-world application, students gain confidence in both speaking and reasoning—culminating in a final competitive-style debate showcase. </p>
+      </div>
+    </div>
+</div>
+
+<!-- ===== Debate Classes Section ===== -->
+  <div class="section-wrapper">
+    <div class="debate-section">
+      <div class="debate-text">
+        <h2>Introduction to Debate</h2>
+        <p> This six-week bootcamp introduces students in grades 4–8 to the fundamentals of competitive and academic debate. Through guided instruction, interactive drills, and team-based activities, students will learn how to build structured arguments, respond to opposing viewpoints, and speak persuasively under pressure. The program provides a supportive environment for students to practice both formal and informal debate techniques, ending with a live debate showdown. </p>
+    </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers3.avif') }}" class="about3-img">
+  </div>
+
+  <!-- ===== Footer Section ===== -->
       <div class="footer-bar">
         <div class="footer-left" style="align-self: flex-end;">
         </div>
@@ -33,11 +92,253 @@
 </style>
 
 <style>
+  /* ===== Our Classes ===== */
+  .ourclasses-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding: 3rem 0;
+    padding-top: 100px !important;
+  }
+
+  .about3-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 80px;
+    margin-right: 40px;
+  }
+
+  .ourclasses-text {
+    flex-grow: 1;
+    color: #000;
+    padding-top: 40px;
+  }
+
+  .ourclasses-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .ourclasses-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  .ourclasses-text h1 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+    font-weight: 800;
+    color: #5c0015;
+    padding-top: -60px;
+    padding-bottom: 30px;
+  }
+
+  .linktree-button a {
+    padding: 1rem 1.5rem;
+    background-color: #5c0015;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    max-width: 150px;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+  /* ===== Advocacy Section ===== */
+  .advocacy-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;              /* ✅ correct */
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 250px;
+    margin-top: 50px;
+    border: none;
+  }
+
+
+  .advocacy-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding: 3rem 0;
+    margin-top: 10px;
+  }
+
+  .about7-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .advocacy-text {
+    flex-grow: 1;
+    color: #ffffff;
+  }
+
+  .advocacy-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .advocacy-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  /* ===== Speech Classes ===== */
+  .speech-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding: 3rem 0;
+  }
+
+  .about3-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+
+  .speech-text {
+    flex-grow: 1;
+    color: #000;
+    padding-top: 40px;
+  }
+
+  .speech-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .speech-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  /* ===== Speech and Debate Section ===== */
+  .speechanddebate-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;              /* ✅ correct */
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 250px;
+    margin-top: 50px;
+  }
+
+  .speechanddebate-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding: 3rem 0;
+    padding-top: 50px !important;
+  }
+
+  .about7-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .speechanddebate-text {
+    flex-grow: 1;
+    color: #ffffff;
+  }
+
+  .speechanddebate-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .speechanddebate-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+/* ===== Debate Classes ===== */
+  .debate-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding: 3rem 0;
+  }
+
+  .about3-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+
+  .debate-text {
+    flex-grow: 1;
+    color: #000;
+    padding-top: 40px;
+  }
+
+  .debate-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .debate-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+
     /* ===== Footer Bar ===== */
   .footer-bar {
-    margin-top: 500px;
     height: auto !important;
-    background-color: #bb1e29;
+    background-color: #5c0015;
     color: white;
     padding: 3rem 5vw 2rem 5vw;
     display: flex;

@@ -3,6 +3,7 @@
 {% block title %}Resources{% endblock %}
 
 {% block content %}
+
 <style>
   nav.navbar {
     padding-top: 0;
@@ -11,10 +12,199 @@
   .navbar-left {
     margin-top: 15px;
   }
+/* ===== Debate Hour Section ===== */
+  .debatehour-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding: 3rem 0;
+    padding-top: 30px !important;
+  }
+
+  .about6-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 80px;
+    margin-right: 40px;
+  }
+
+  .debatehour-text {
+    flex-grow: 1;
+    color: #000;
+  }
+
+  .debatehour-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .debatehour-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+/* ===== Youtube Channel Section ===== */
+  .yt-full-bg {
+    background-color: #5c0015;
+    color: white;
+    display: flex;              /* ✅ correct */
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 250px;
+    margin: 0 !important;
+    border: none;
+    gap: 0; /* remove spacing */
+    padding: 0;
+  }
+
+
+  .youtubechannel-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    padding: 3rem 0;
+    padding-top: 10px !important;
+  }
+
+  .about7-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 80px;
+  }
+
+  .youtubechannel-text {
+    flex-grow: 1;
+    color: #ffffff;
+  }
+
+  .youtubechannel-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .youtubechannel-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+/* ===== Blog Section ===== */
+  .blog-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 40px !important;
+    padding: 3rem 0;
+    padding-top: 30px !important;
+  }
+
+  .about1-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 80px;
+    margin-right: 40px;
+  }
+
+  .blog-text {
+    flex-grow: 1;
+    color: #000;
+  }
+
+  .blog-text h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    color: #650000;
+    margin-bottom: 1rem;
+  }
+
+  .blog-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: normal;
+    padding-bottom: 20px;
+  }
+
+  .blog-button a {
+    padding: .8rem 1.2rem;
+    background-color: #5c0015;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    max-width: 150px;
+    justify-content: center;
+    margin-bottom: 0px;
+    margin-top: 50px;
+  }
+
+
 </style>
 
   </style>
+<!-- ===== Debate Hour Section ===== -->
+  <div class="section-wrapper">
+    <div class="debatehour-section">
+      <div class="debatehour-text">
+        <h2>The Debate Hour</h2>
+        <p>  
+  The Debate Hour features spontaneous, unfiltered debates on current-event topics and popular NSDA PF, Policy, and LD resolutions, all designed to make argumentation more approachable for students. Hosted by Yashnil Mohanty and Jake Oderio, each episode breaks down real-time thinking, structured reasoning, and how anyone can learn to speak with confidence.
+        </p>
+    </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers6.avif') }}" class="about6-img">
+  </div>
 
+<!-- ===== YTCHANNEL Section ===== -->
+  <div class="yt-full-bg" id="ytSection">
+          <div class="youtubechannel-section">
+        <img src="{{ url_for('static', filename='images/futurespeakers7.avif') }}" class="about7-img">
+        <div class="youtubechannel-text">
+          <h2>The Future Speakers Initiative's Youtube Channel</h2>
+          <p>  
+            The FSI YouTube Channel offers free, high-quality lessons and playlists covering speech fundamentals, debate techniques, argumentation, delivery, confidence-building, and competitive event strategy. These videos are designed for middle and high school students, especially those without access to formal coaching or structured programs. Whether you're just getting started or sharpening advanced skills, our channel helps you grow as a communicator.
+          </p>
+      </div>
+  </div>
+</div>
+
+<!-- ===== Blog Section ===== -->
+  <div class="section-wrapper">
+    <div class="blog-section">
+      <div class="blog-text">
+        <h2>The FSI Blog</h2>
+        <p>  
+A collection of articles, thoughts, and updates on speech and debate access, student experiences, and the realities of educational equity. We write about what we’re seeing, learning, and working to change. Check out our articles on Substack using the button below!
+        </p>
+        <div class="blog-button">
+          <a href="/events">OUR BLOG</a>
+        </div>
+    </div>
+    <img src="{{ url_for('static', filename='images/futurespeakers1.avif') }}" class="about1-img">
+  </div>
+
+
+<!-- ===== Footer Bar ===== -->
       <div class="footer-bar">
         <div class="footer-left" style="align-self: flex-end;">
         </div>
@@ -39,9 +229,8 @@
 <style>
     /* ===== Footer Bar ===== */
   .footer-bar {
-    margin-top: 500px;
     height: auto !important;
-    background-color: #bb1e29;
+    background-color: #5c0015;
     color: white;
     padding: 3rem 5vw 2rem 5vw;
     display: flex;
