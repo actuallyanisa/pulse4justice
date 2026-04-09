@@ -98,8 +98,7 @@
     display: flex;
     align-items: center;
     gap: 3rem;
-    padding-left: 40px !important;
-    padding: 3rem 0;
+    padding: 3rem 40px;
     padding-top: 100px !important;
   }
 
@@ -139,7 +138,7 @@
     white-space: normal;
     font-weight: 800;
     color: #5c0015;
-    padding-top: -60px;
+    padding-top: 0px;
     padding-bottom: 30px;
   }
 
@@ -391,6 +390,66 @@
   .footer-right-centered i {
     margin-right: 6px;
   }
+
+  @media (max-width: 768px) {
+
+  /* ===== ALL FLEX SECTIONS STACK ===== */
+  .ourclasses-section,
+  .advocacy-section,
+  .speech-section,
+  .speechanddebate-section,
+  .debate-section {
+    flex-direction: column;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    text-align: center;
+  }
+
+  /* ===== ALL IMAGES SCALE ===== */
+  .about2-img,
+  .about3-img,
+  .about4-img,
+  .about7-img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  /* ===== TEXT FIXES ===== */
+  .ourclasses-text h2,
+  .advocacy-text h2,
+  .speech-text h2,
+  .speechanddebate-text h2,
+  .debate-text h2 {
+    font-size: 2.4rem;
+  }
+
+  .ourclasses-text p,
+  .advocacy-text p,
+  .speech-text p,
+  .speechanddebate-text p,
+  .debate-text p {
+    font-size: 1rem;
+  }
+
+  /* ===== BUTTON FIX ===== */
+  .linktree-button a {
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+
+  /* ===== FOOTER FIX ===== */
+  .footer-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right-centered {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
 </style>
 
   {% endblock %}

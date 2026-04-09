@@ -13,15 +13,14 @@
     margin-top: 15px;
   }
 /* ===== Debate Hour Section ===== */
-  .debatehour-section {
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding-left: 40px !important;
-    padding: 3rem 0;
-    padding-top: 30px !important;
-  }
+.debatehour-section {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem 40px;
+  padding-top: 40px !important;
+}
 
   .about6-img{
     flex-shrink: 0;
@@ -66,17 +65,14 @@
     padding: 0;
   }
 
-
-  .youtubechannel-section {
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-    padding: 3rem 0;
-    padding-top: 10px !important;
-  }
+.youtubechannel-section {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem 40px;
+  padding-top: 30px !important;
+}
 
   .about7-img{
     flex-shrink: 0;
@@ -85,7 +81,7 @@
     object-fit: cover;
     border-radius: 0; /* square borders */
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   .youtubechannel-text {
@@ -107,58 +103,73 @@
   }
 
 /* ===== Blog Section ===== */
+.blog-section {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: flex-start; /* align top instead of center */
+  gap: 3rem;
+  padding: 40px 40px 40px 40px; /* top, right, bottom, left */
+}
+
+.about1-img {
+  flex-shrink: 0;
+  width: 400px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-top: 0; /* reset large margin */
+  margin-right: 40px;
+}
+
+.blog-text {
+  flex-grow: 1;
+  color: #000;
+}
+
+.blog-text h2 {
+  font-weight: 900;
+  font-size: 3rem;
+  color: #650000;
+  margin-bottom: 1rem;
+}
+
+.blog-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  white-space: normal;
+  padding-bottom: 20px;
+}
+
+.blog-button a {
+  padding: .8rem 1.2rem;
+  background-color: #5c0015;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  max-width: 150px;
+  justify-content: center;
+  margin-bottom: 0px;
+  margin-top: 50px;
+}
+
+/* ===== Mobile Adjustments ===== */
+@media (max-width: 768px) {
   .blog-section {
-    font-family: "Montserrat", sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding-left: 40px !important;
-    padding: 3rem 0;
-    padding-top: 30px !important;
+    flex-direction: column;
+    padding: 40px 20px 30px 20px;
   }
 
-  .about1-img{
-    flex-shrink: 0;
-    width: 400px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 0; /* square borders */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    margin-top: 80px;
-    margin-right: 40px;
-  }
-
-  .blog-text {
-    flex-grow: 1;
-    color: #000;
-  }
-
-  .blog-text h2 {
-    font-weight: 900;
-    font-size: 3rem;
-    color: #650000;
-    margin-bottom: 1rem;
-  }
-
-  .blog-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    white-space: normal;
-    padding-bottom: 20px;
+  .about1-img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px 0; /* add bottom spacing */
   }
 
   .blog-button a {
-    padding: .8rem 1.2rem;
-    background-color: #5c0015;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    max-width: 150px;
-    justify-content: center;
-    margin-bottom: 0px;
-    margin-top: 50px;
+    margin-top: 20px;
   }
-
+}
 
 </style>
 
@@ -283,5 +294,150 @@ A collection of articles, thoughts, and updates on speech and debate access, stu
   .footer-right-centered i {
     margin-right: 6px;
   }
+
+  /* ===== GLOBAL MOBILE FIXES ===== */
+@media (max-width: 768px) {
+
+  /* ===== ALL FLEX SECTIONS STACK CLEANLY ===== */
+  .mission-section1,
+  .whatweoffer-section,
+  .ourclasses-section,
+  .advocacy-section,
+  .speech-section,
+  .speechanddebate-section,
+  .debate-section,
+  .debatehour-section,
+  .youtubechannel-section,
+  .blog-section {
+    flex-direction: column;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    text-align: center;
+  }
+
+  /* ===== ALL IMAGES SCALE + REMOVE WEIRD SPACING ===== */
+  .about-img,
+  .about1-img,
+  .about2-img,
+  .about3-img,
+  .about4-img,
+  .about6-img,
+  .about7-img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ===== FIX HIDDEN / PUSHED TITLES (LIKE DEBATE HOUR) ===== */
+  .mission-text1,
+  .whatweoffer-text,
+  .ourclasses-text,
+  .advocacy-text,
+  .speech-text,
+  .speechanddebate-text,
+  .debate-text,
+  .debatehour-text,
+  .youtubechannel-text,
+  .blog-text {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* ===== HEADINGS SCALE PROPERLY ===== */
+  .mission-text1 h2,
+  .whatweoffer-text h2,
+  .ourclasses-text h2,
+  .advocacy-text h2,
+  .speech-text h2,
+  .speechanddebate-text h2,
+  .debate-text h2,
+  .debatehour-text h2,
+  .youtubechannel-text h2,
+  .blog-text h2 {
+    font-size: 2.4rem;
+    margin-top: 10px;
+  }
+
+  /* ===== PARAGRAPH TEXT ===== */
+  .mission-text1 p,
+  .whatweoffer-text p,
+  .ourclasses-text p,
+  .advocacy-text p,
+  .speech-text p,
+  .speechanddebate-text p,
+  .debate-text p,
+  .debatehour-text p,
+  .youtubechannel-text p,
+  .blog-text p {
+    font-size: 1rem;
+  }
+
+  /* ===== BUTTONS CENTER PROPERLY ===== */
+  .whatweoffer-button a,
+  .linktree-button a,
+  .blog-button a {
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+
+  /* ===== HERO SECTION FIX ===== */
+  .hero-image-wrapper {
+    height: 60vh;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  /* ===== FOOTER FIX ===== */
+  .footer-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-right-centered {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+
+  .debatehour-section {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .about6-img {
+    order: 1;              /* image FIRST */
+    width: 100%;
+    height: auto;
+    margin: 70px 0 40px 0 !important;  /* 🔥 adds space from navbar */
+    z-index: 1;
+  }
+
+  .debatehour-text {
+    order: 2;              /* text AFTER image */
+    position: relative;
+    z-index: 2;            /* 🔥 ensures it's ABOVE */
+  }
+
+  .debatehour-text h2 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+}
+}
+
 </style>
 {% endblock %}
