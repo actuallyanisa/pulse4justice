@@ -92,7 +92,7 @@ nav.navbar {
 
 .founder-images {
   display: flex;
-  gap: 2.5rem;
+  gap: 3rem;
   justify-content: center;
   flex-wrap: wrap; 
 }
@@ -133,7 +133,6 @@ nav.navbar {
 /* ===== Our Story Section ===== */
 .our-story-section {
   background-color: white;
-  padding: 5rem 0;
 }
 
 .our-story-section h2 {
@@ -149,6 +148,45 @@ nav.navbar {
   color: #111;
   white-space: normal;
 }
+
+ .our-story-section {
+    font-family: "Montserrat", sans-serif;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .about7-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .our-story-text {
+    flex-grow: 1;
+    color: #ffffff;
+  }
+
+  .our-story-text h2 {
+   font-size: 2.8rem;
+    font-weight: 900;
+    color: #5c0015;
+    margin-bottom: 1.5rem;
+  }
+
+  .our-story-text p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #111;
+    font-weight: 400;
+    white-space: normal;
+  }
 
 /* ===== Recognition Section ===== */
 .recognition-full-bg {
@@ -183,25 +221,43 @@ nav.navbar {
 }
 
 /* ===== Classes Section ===== */
-.classes-section {
-  background-color: white;
-  padding: 5rem 0;
-}
 
-.classes-section h2 {
-  font-size: 2.8rem;
+ .classes-section {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 50px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .about7-img{
+    flex-shrink: 0;
+    width: 400px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 0; /* square borders */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .classes-text {
+    flex-grow: 1;
+    color: #ffffff;
+  }
+
+  .classes-text h2 {
+   font-size: 2.8rem;
   font-weight: 900;
   color: #5c0015;
   margin-bottom: 1.5rem;
-}
+  }
 
-.classes-section p {
-  font-size: 1.3rem;
-  line-height: 1.7;
-  color: #111;
-  white-space: normal;
-}
-
+  .classes-text p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #111;
+    white-space: normal;
+  }
 /* ===== Footer Bar ===== */
 .footer-bar {
   margin-top: 50px;
@@ -364,6 +420,8 @@ Founded by Yashnil Mohanty, FSI was created to bridge the gap in speech and deba
   </div>
 </div>
 
+
+
 <!-- ===== Founders Section ===== -->
 <div class="founders-full-bg" id="foundersSection">
   <div class="founders-section">
@@ -398,18 +456,52 @@ Founded by Yashnil Mohanty, FSI was created to bridge the gap in speech and deba
         <div class="name">Szimona Kokeny</div>
         <div class="role">Curriculum Developer</div>
       </div>
+
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/yashnil.avif') }}" alt="Yashnil Mohanty" />
+        <div class="name">Yashnil Mohanty</div>
+        <div class="role">Founder and Previous President</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/rishi.avif') }}" alt="Rishi Nellayappan" />
+        <div class="name">Rishi Nellayappan</div>
+        <div class="role">Previous Vice President</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/nickolas.avif') }}" alt="Nickolas Martovetsky" />
+        <div class="name">Nickolas Martovetsky</div>
+        <div class="role">Previous Events Coordinator</div>
+      </div>
+    <div class="founder">
+        <img src="{{ url_for('static', filename='images/ishant.avif') }}" alt="Ishant Chintapatla" />
+        <div class="name">Ishant Chintapatla</div>
+        <div class="role">Previous Coach</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/derek.avif') }}" alt="Derek Lee" />
+        <div class="name">Derek Lee</div>
+        <div class="role">Previous Coach</div>
+      </div>
+      <div class="founder">
+        <img src="{{ url_for('static', filename='images/rags.avif') }}" alt="Raghav Subramaniam" />
+        <div class="name">Raghav Subramaniam</div>
+        <div class="role">Previous Media Coordinator</div>
+      </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ===== Our Story Section ===== -->
 <div class="section-wrapper">
-  <div class="our-story-section">
-    <h2>Our Story</h2>
-    <p>
-Competing for Westmont High School, we saw firsthand how disparities in funding and resources impact students’ ability to compete on equal footing. Many middle schoolers in underfunded schools never get the chance to experience debate, practice public speaking, or sharpen their critical thinking, skills that are crucial for academic success, career advancement, and self-advocacy. This inequality creates a cycle where students from wealthier backgrounds become more articulate and confident, while students from disadvantaged communities struggle to find their voice.
-    </p>
-  </div>
+    <div class="our-story-section">
+        <img src="{{ url_for('static', filename='images/futurespeakers7.avif') }}" class="about7-img">
+        <div class="classes-text">
+          <h2>Our Story</h2>
+          <p> Competing for Westmont High School, we saw firsthand how disparities in funding and resources impact students’ ability to compete on equal footing. Many middle schoolers in underfunded schools never get the chance to experience debate, practice public speaking, or sharpen their critical thinking, skills that are crucial for academic success, career advancement, and self-advocacy. This inequality creates a cycle where students from wealthier backgrounds become more articulate and confident, while students from disadvantaged communities struggle to find their voice.
+          </p>
+      </div>
+    </div>
 </div>
 
 <!-- ===== Recognition Section ===== -->
@@ -421,17 +513,20 @@ Competing for Westmont High School, we saw firsthand how disparities in funding 
   <div class="awards-desc">
     <p>
       Future Speakers Initiative has been honored to receive recognition for our work in expanding access to speech and debate education. We're honored to have our work acknowledged officially by Campbell's Mayor, Sergio Lopez, and San Jose's Mayor, Matt Mahan. Additionally, we've had our work recognized by California Senator Dave Cortese, who has commended our efforts to empower students through communication skills. These recognitions reflect our commitment to creating opportunities for all students to find their voice and succeed in speech and debate.
-  </div>
+    </p>
+    </div>
 </div>
 
 <!-- ===== Our Classes ===== -->
 <div class="section-wrapper">
-  <div class="classes-section">
-    <h2>Our Classes</h2>
-    <p>
-Future Speakers Initiative offers free, high-quality classes in public speaking, debate, and advocacy for middle school students. Our curriculum is designed to be engaging, interactive, and accessible to students of all backgrounds and skill levels. We focus on building foundational skills in argumentation, delivery, and critical thinking while also empowering students to speak out on issues they care about. Our classes are taught by experienced coaches and mentors who are passionate about helping students find their voice and become confident communicators. Whether your child is new to speech and debate or looking to sharpen their skills, our classes provide a supportive environment for growth and learning.
-    </p>
-  </div>
+    <div class="classes-section">
+        <div class="classes-text">
+          <h2>Our Classes</h2>
+          <p> Future Speakers Initiative offers free, high-quality classes in public speaking, debate, and advocacy for middle school students. Our curriculum is designed to be engaging, interactive, and accessible to students of all backgrounds and skill levels. We focus on building foundational skills in argumentation, delivery, and critical thinking while also empowering students to speak out on issues they care about. Our classes are taught by experienced coaches and mentors who are passionate about helping students find their voice and become confident communicators. Whether your child is new to speech and debate or looking to sharpen their skills, our classes provide a supportive environment for growth and learning.
+          </p>
+      </div>
+      <img src="{{ url_for('static', filename='images/futurespeakers6.avif') }}" class="about7-img">
+    </div>
 </div>
 
 <!-- ===== Footer Bar ===== -->
